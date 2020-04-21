@@ -1,27 +1,22 @@
-function start(){
+function start(pressedBtn){
     var file = document.getElementById("inputFile");
 
     if(file.files.length){ //if file exists
         var reader = new FileReader();
         reader.readAsText(file.files[0]);
-        var title = file.files[0].name;  //later iteraten ofzo
+        var title = file.files[0].name;  //later iteraten
         
         reader.onload = function(e){
-            if(title.endsWith(".zip")){
-                var zip = new JSZip();
-                zip.loadAsync(file).then(function(){
-                    console.log(zip);
-                    return zip.file().async("text");
-                }).then(function (txt){
-                    console.log(txt);
-                });
-            }
-            else{
+            if(title.endsWith(".srt")){
                 var rawsub = e.target.result;
                 converted = convert(rawsub, title);
-                download(converted, "converted");}
-        };
-    }
+                if(pressedBtn == "download"){
+                    download(converted, "converted");
+                }
+                else if(pressedBtn == "show"){
+                    show(converted)
+        }   }   }
+    }   
 }
 
 function convert(rawsub, title){
@@ -40,6 +35,10 @@ function convert(rawsub, title){
         text = text + line + "\n";
     }
     return text;
+}
+
+function show(data){
+    document.getElementById("text").innerText = data;
 }
 
 function download(data, filename){

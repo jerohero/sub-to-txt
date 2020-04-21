@@ -38,12 +38,32 @@
         <form name="inputForm">
 
             <label class="inputButton"> <p>Select <strong>.srt</strong> file(s).</p>
-                <input type="file" id="inputFile" multiple accept=".srt, .zip">
+                <input type="file" id="inputFile" multiple accept=".srt">
             </label>
-            <button id="convertButton" type="button" onclick="start()"><strong>Convert</strong> & <strong>download</strong></button>
+            <div id="buttons">
+                <button id="convertDownloadBtn" type="button" onclick="start('download')"><strong>Convert</strong> & <strong>download</strong></button>
+                <button id="convertShowBtn" type="button" onclick="start('show')"><strong>Convert</strong> & <strong>show here</strong></button>
+            </div>
+            <div id="textArea">
+                <p id="text">Hotel.Del.Luna.S01E11.1080p.WEB-DL.H264.AAC-AppleTor
+                    ————————————————————————————————————————————————————
+                    (Episode 11)
+                    
+                    I wonder...
+                    
+                    if Ko Chung Myung...
+                    
+                    was there to meet her.
+                    
+                    Chan Seong! Chan Seong, come here!
+                    
+                    This came for you.
+                    
+                    It's from Man Weol.
+                    
+                    - It's from Ms. Jang? - Yes.</p>
+            </div>
         </form>
-
-        <div id="outputDiv"></div>
     </main>
 
     <script src="main.js"></script>

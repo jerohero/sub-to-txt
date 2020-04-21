@@ -131,14 +131,16 @@ main > header > h1{
     margin: 0px auto;
 }
 
+#buttons{
+  display: flex;
+}
 
-#convertButton{
+#convertDownloadBtn, #convertShowBtn{
   background: #ffcb20;
   display: block;
   margin: 0px auto;
-  margin-top: 40px;
-  padding: 8px 30px;
-  color: black;
+  margin-top: 30px;
+  padding: 8px 20px;
   border-style: none;
   border-radius: 5px;
   font-size: 16px;
@@ -146,9 +148,15 @@ main > header > h1{
   transition: all 0.5s ease-in-out;
 }
 
-#convertButton:hover{
+#convertDownloadBtn:hover, #convertShowBtn:hover{
   background: #ffe600;
-  font-size: 18px;
+  font-size: 16.3px;
+}
+
+#textArea{
+  border-style: solid;
+  margin-top: 30px;
+  padding: 15px;
 }
 
 
