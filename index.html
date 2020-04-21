@@ -38,7 +38,7 @@
             <p>With this tool you can convert subtitles (in .srt format) to raw text.</p>
             <form name="inputForm">
 
-                <label class="inputButton"> <p>Select <strong>.srt</strong> file(s).</p>
+                <label class="inputButton"> <p>Select <strong>.srt</strong> file.</p>
                     <input type="file" id="inputFile" multiple accept=".srt">
                 </label>
                 <div id="buttons">
@@ -47,14 +47,16 @@
                 </div>
             </form>
          </div>
-        <div id="textArea" class="disabled">
-            <h2 id="title"></h2>
-            <p id="text"></p>
+        <div class="textArea active">
+            <button id="copyBtn">Copy to clipboard</button>
+            <h2 class="title"></h2>
+            <p class="text"></p>
+            <p class="hiddenOutput"></p>
         </div>
     </main>
 
     <script src="main.js"></script>
-    <script src="dist/jszip.js"></script>
+    <script src="../dist/clipboard.min.js"></script>
 </body>
 </html>
 
