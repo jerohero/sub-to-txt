@@ -30,40 +30,27 @@
     </header>
 
     <main>
-        <header>
-            <img src="/img/headerimg1.jpg" alt="img">
-            <h1><span class="yellow">sub</span> > <span class="black">txt</span> converter tool</h1>
-        </header>
-        <p>With this tool you can convert subtitles (in .srt format) to raw text.</p>
-        <form name="inputForm">
+        <div id="mainContainer">
+            <header>
+                <img src="../img/headerimg1.jpg" alt="img">
+                <h1><span class="yellow">sub</span> > <span class="black">txt</span> converter tool</h1>
+            </header>
+            <p>With this tool you can convert subtitles (in .srt format) to raw text.</p>
+            <form name="inputForm">
 
-            <label class="inputButton"> <p>Select <strong>.srt</strong> file(s).</p>
-                <input type="file" id="inputFile" multiple accept=".srt">
-            </label>
-            <div id="buttons">
-                <button id="convertDownloadBtn" type="button" onclick="start('download')"><strong>Convert</strong> & <strong>download</strong></button>
-                <button id="convertShowBtn" type="button" onclick="start('show')"><strong>Convert</strong> & <strong>show here</strong></button>
-            </div>
-            <div id="textArea">
-                <p id="text">Hotel.Del.Luna.S01E11.1080p.WEB-DL.H264.AAC-AppleTor
-                    ————————————————————————————————————————————————————
-                    (Episode 11)
-                    
-                    I wonder...
-                    
-                    if Ko Chung Myung...
-                    
-                    was there to meet her.
-                    
-                    Chan Seong! Chan Seong, come here!
-                    
-                    This came for you.
-                    
-                    It's from Man Weol.
-                    
-                    - It's from Ms. Jang? - Yes.</p>
-            </div>
-        </form>
+                <label class="inputButton"> <p>Select <strong>.srt</strong> file(s).</p>
+                    <input type="file" id="inputFile" multiple accept=".srt">
+                </label>
+                <div id="buttons">
+                    <button id="convertDownloadBtn" type="button" onclick="start('download')"><strong>Convert</strong> & <strong>download</strong></button>
+                    <button id="convertShowBtn" type="button" onclick="start('show')"><strong>Convert</strong> & <strong>show here</strong></button>
+                </div>
+            </form>
+         </div>
+        <div id="textArea" class="disabled">
+            <h2 id="title"></h2>
+            <p id="text"></p>
+        </div>
     </main>
 
     <script src="main.js"></script>

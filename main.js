@@ -9,21 +9,20 @@ function start(pressedBtn){
         reader.onload = function(e){
             if(title.endsWith(".srt")){
                 var rawsub = e.target.result;
-                converted = convert(rawsub, title);
+                converted = convert(rawsub);
                 if(pressedBtn == "download"){
+                    converted = addTitle(converted, title);
                     download(converted, "converted");
                 }
                 else if(pressedBtn == "show"){
-                    show(converted)
+                    show(converted, title)
         }   }   }
     }   
 }
 
-function convert(rawsub, title){
-    title = title.replace(".srt", "");
-    var text = title + "\n";
-    text = text + "—".repeat(title.length) + "\n";
+function convert(rawsub){
     let lines = rawsub.split("\n");
+    var text = "";
 
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
@@ -37,7 +36,15 @@ function convert(rawsub, title){
     return text;
 }
 
-function show(data){
+function addTitle(text, title){
+    title = title.replace(".srt", "");
+    text = title + "\n" + "—".repeat(title.length) + "\n" + text;
+    return text;
+}
+
+function show(data, title){
+    document.getElementById("textArea").className = "active";
+    document.getElementById("title").innerText = title;
     document.getElementById("text").innerText = data;
 }
 

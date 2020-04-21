@@ -5,7 +5,18 @@ html, body{
     margin: 0;
 }
 
-/* NAVBAR MET TOGGLE (VOOR MOBIELE WEBPAGINA) */
+body::-webkit-scrollbar{
+  width: 13px;
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb{
+  border-radius: 20px;
+  background-color: #FF4141;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+/* MOBILE NAVBAR */
 .navbar{
     z-index: 9999;
     /* background: #FF4141E6; */
@@ -84,24 +95,24 @@ nav a:hover{
 /* EINDE NAVBAR */
 
 
-main{
+#mainContainer{
     width: 30%;
     background-color: white;
     margin: 0 auto;
     padding: 100px;
-    padding-top: 50px;
+    padding-top: 40px;
     max-width: 80%;
-    height: 640px;
-    transform: translateY(10%);
+    height: 510px;
+    transform: translateY(13%);
     border-radius: 3px;
 }
 
-main > header > img{
+#mainContainer > header > img{
     width: 100%;
     border-radius: 3px;
 }
 
-main > header > h1{
+#mainContainer > header > h1, #mainContainer > p{
     text-align: center;
 }
 
@@ -154,9 +165,30 @@ main > header > h1{
 }
 
 #textArea{
-  border-style: solid;
+  /* border-style: solid; */
   margin-top: 30px;
-  padding: 15px;
+  word-wrap: break-word;
+  width: 30%;
+  background-color: white;
+  margin: 0 auto;
+  padding: 100px;
+  padding-top: 40px;
+  transform: translateY(100px);
+  border-radius: 3px;
+}
+
+.disabled{
+  display: none;
+}
+
+.active{
+  display: block;
+}
+
+#title{
+  font-size: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ffcb20;
 }
 
 
