@@ -4,7 +4,7 @@ function start(){
     if(file.files.length){ //if file exists
         var reader = new FileReader();
         reader.readAsText(file.files[0]);
-        var title = file.files[0].name;  //later iteraten ofzo 
+        var title = file.files[0].name;  //later iteraten ofzo
         
         reader.onload = function(e){
             if(title.endsWith(".zip")){
