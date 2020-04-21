@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub to text converter</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="master.css">
+    <!-- <script src="js/main.js"></script> -->
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="index.html">
+            <img class="logo" src="img/logo.png" alt="logo">
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+            <ul class="nav-leftarea">
+                <li><a href="index.html">github</a></li>
+            </ul>
+            <ul class="nav-rightarea">
+                <li><a href="merch.html">contact</a></li>
+            </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+            <img class="articleIcon" src="img/dropdownicon.png" alt="Article icon">
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <header>
+            <img src="/img/headerimg1.jpg" alt="img">
+            <h1><span class="yellow">sub</span> > <span class="black">txt</span> converter tool</h1>
+        </header>
+        <p>With this tool you can convert subtitles (in .srt format) to raw text.</p>
+        <form name="inputForm">
+
+            <label class="inputButton"> <p>Select <strong>.srt</strong> file(s).</p>
+                <input type="file" id="inputFile" multiple accept=".srt, .zip">
+            </label>
+            <button id="convertButton" type="button" onclick="start()"><strong>Convert</strong> & <strong>download</strong></button>
+        </form>
+
+        <div id="outputDiv"></div>
+    </main>
+
+    <script src="main.js"></script>
+    <script src="dist/jszip.js"></script>
+</body>
+</html>
+
+<!-- https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ -->

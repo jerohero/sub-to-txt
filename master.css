@@ -1,0 +1,253 @@
+html, body{
+    background-color: #ccc;
+    font-family: "Raleway", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/* NAVBAR MET TOGGLE (VOOR MOBIELE WEBPAGINA) */
+.navbar{
+    z-index: 9999;
+    /* background: #FF4141E6; */
+    background: #2e2e2e;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
+  
+.navbar img{
+    -webkit-user-drag: none;
+}
+  
+.logo{
+    width: 30%;
+    padding: 5px 0px 5px 0px;
+}
+  
+nav{
+    position: absolute;
+    text-align: left;
+    background: #2e2e2e;
+    width: 100%;
+    transition: transform 400ms ease-in-out;
+    transform-origin: top;
+    transform: scale(1, 0);
+}
+  
+nav ul{
+    list-style: none;
+}
+  
+nav li{
+    margin-bottom: 16px;
+    margin-left: 16px;
+}
+  
+nav a{
+    color: white;
+    font-size: 23px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+  
+nav .active{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+  
+nav a:hover{
+    border-bottom: 0;
+    font-weight: bolder;
+}
+  
+.nav-toggle{
+    display: none;
+}
+  
+.nav-toggle:checked ~ nav{
+    transform: scale(1, 1);
+}
+  
+.nav-toggle:checked ~ nav a{
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+  
+.nav-toggle-label img{
+    margin-left: 16px;
+    left: 0;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* EINDE NAVBAR */
+
+
+main{
+    width: 30%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 100px;
+    padding-top: 50px;
+    max-width: 80%;
+    height: 640px;
+    transform: translateY(10%);
+    border-radius: 3px;
+}
+
+main > header > img{
+    width: 100%;
+    border-radius: 3px;
+}
+
+main > header > h1{
+    text-align: center;
+}
+
+.yellow, .black{
+    font-family: Helvetica, sans-serif;
+}
+
+.yellow{
+    color: #fcbe19;
+    text-shadow: 1px 1px black;
+}
+
+.inputButton p{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#inputFile{
+    background: #2e2e2e;
+    color: white;
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    display: block;
+    width: 85%;
+    margin: 0px auto;
+}
+
+
+#convertButton{
+  background: #ffcb20;
+  display: block;
+  margin: 0px auto;
+  margin-top: 40px;
+  padding: 8px 30px;
+  color: black;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  transition: all 0.5s ease-in-out;
+}
+
+#convertButton:hover{
+  background: #ffe600;
+  font-size: 18px;
+}
+
+
+/* NAVBAR ZONDER TOGGLE (VOOR DESKTOP WEBPAGINA) */
+@media only screen and (min-width: 800px){
+    .nav-toggle-label{
+      display: none;
+    }
+  
+    .navbar{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-content: center;
+    }
+  
+    .logo{
+      display: grid;
+      width: 40%;
+      position: relative;
+      left: 109.5%;
+      transform: translateX(50%);
+      grid-column: 2;
+      align-self: center;
+      z-index: 1;
+    }
+  
+    nav{
+      display: grid;
+      transform: scale(1, 1);
+      background: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    nav a{
+      opacity: 1;
+      position: relative;
+    }
+  
+    nav a::before,
+    nav a::after{
+      content: '';
+      display: block;
+      height: 4px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      opacity: 0.8;
+      transform: scale(0, 1);
+      transition: transform ease-in-out 250ms;
+    }
+  
+    nav a::before{
+      background: #fcbe19;
+      top: -7px;
+      transform-origin: left;
+      border-top-right-radius: 20px;
+    }
+  
+    nav a::after{
+      top: 30px;
+      transform-origin: right;
+      border-bottom-left-radius: 20px;
+      background: black;
+    }
+  
+    nav a:hover::before, nav a:hover::after{
+      transform: scale(1, 1);
+    }
+  
+    nav ul{
+      display: flex;
+      margin: 0 auto;
+    }
+  
+    nav li{
+      margin-left: 50px;
+      margin-bottom: 0;
+    }
+  
+    .nav-leftarea{
+      position: relative;
+      left: 230px;
+      grid-column: 1;
+      }
+  
+    .nav-rightarea{
+      position: relative;
+      right: 320px;
+      grid-column: 3;
+      }
+  
+      @media only screen and (min-width: 700px) and (max-width:1500px){
+        .nav-leftarea{
+          left:0px;
+        }
+        .nav-rightarea{
+          right:0px;
+        }
+      }
+  }
