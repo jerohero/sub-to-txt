@@ -11,14 +11,17 @@ function start(pressedBtn){
         newTextArea(title);
         
         reader.onload = function(e){
-            if(title.endsWith(".srt")){
                 var rawsub = e.target.result;
-                converted = convert(rawsub, title); // 0-plain 1-txt
+                if(title.endsWith(".srt")){
+                    converted = convertSrt(rawsub, title); // 0-plain 1-txt
+                }
+                else if(title.endsWith(".ass")){
+                    converted = convertAss(rawsub, title);  //0-plain 1-txt
+                }
                 document.getElementsByClassName("hiddenOutput")[count].innerHTML = converted[1];
                 if(pressedBtn == "show"){
                     show(converted[0], title);
                 }
-            }
         }    
     }  
     changeTitleLinkState();
@@ -30,8 +33,8 @@ function newTextArea(title){
 
     var copyBtn = document.createElement("button");
     copyBtn.className = "copyBtn";
-    // openTxtBtn.onclick = function() {openTxt(index);}
-    // openTxtBtn.type = "button";
+    copyBtn.onclick = function() {copyTxt(index, title);}
+    copyBtn.type = "button";
     copyBtn.innerHTML = "<img src='/img/copyicon.png'/><strong>Copy</strong>";
     var openTxtBtn = document.createElement("button");
     openTxtBtn.className = "openTxt";
@@ -69,7 +72,7 @@ function newTextArea(title){
     document.getElementById("navlist").appendChild(titlelinkBtn);
 }
 
-function convert(rawsub, title){
+function convertSrt(rawsub, title){
     let lines = rawsub.split("\n");
     var text = "";
     title = title.replace(".srt", "");
@@ -99,6 +102,29 @@ function convert(rawsub, title){
     return textList;
 }
 
+function convertAss(rawsub, title){
+    
+    rawsub = rawsub.substring(rawsub.indexOf("Dialogue:"), rawsub.length);
+    // rawsub = rawsub.replace(/\\N/g, "\n");
+    rawsub = rawsub.replace(/{\\i1}/g, "").replace(/{\\i0}/g, "");
+    let lines = rawsub.split("\n");
+    var text = "";
+    title = title.replace(".ass", "");
+    var txtText = title + "\n" + "—".repeat(title.length) + "\n";
+    txtText = txtText + rawsub;
+    
+
+    for (let index = 0; index < lines.length; index++) {
+        let line = lines[index];
+        let splittedLine = line.split("Default");
+        console.log(splittedLine);
+        // if()
+    }
+
+    var textList = [text, txtText];
+    return textList;
+}
+
 function show(data, title){
     var titleElement = document.getElementsByClassName("title")[count];
     var textArea = document.getElementsByClassName("textArea")[count];
@@ -114,6 +140,12 @@ function show(data, title){
 function openTxt(index){
     var hiddenText = document.getElementsByClassName("hiddenOutput")[index].innerHTML;
     download(hiddenText, "converted");
+}
+
+function copyTxt(index, title){
+    var textToCopy = document.getElementsByClassName("hiddenOutput")[index].innerText;
+    navigator.clipboard.writeText(textToCopy);
+    alert("Copied subtitles from:\n" + title);
 }
 
 function download(data, filename){
