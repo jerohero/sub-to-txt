@@ -21,6 +21,8 @@ function start(pressedBtn){
             }
         }    
     }  
+    changeTitleLinkState();
+    window.addEventListener('scroll', changeTitleLinkState);
 }
 
 function newTextArea(title){
@@ -49,14 +51,22 @@ function newTextArea(title){
     textAreaDiv.appendChild(title_h2); textAreaDiv.appendChild(text_p);
     textAreaDiv.appendChild(hiddenOutput_p); document.body.appendChild(textAreaDiv);
 
+    if(count == 0){
+        homelinkBtn = document.createElement("button");
+        homelinkBtn.innerText = "Home"
+        homelinkBtn.className = "homelink";
+        homelinkBtn.type = "button";
+        homelinkBtn.onclick = function() {
+            document.getElementById("mainContainer").scrollIntoView(); window.scrollBy(0, -100);}
+        document.getElementById("navlist").appendChild(homelinkBtn);
+    }
     var titlelinkBtn = document.createElement("button");
     titlelinkBtn.className = "titlelink";
     titlelinkBtn.type = "button";
     titlelinkBtn.innerText = title.replace(".srt", "");
     titlelinkBtn.onclick = function() {
-        document.getElementsByClassName("textArea")[index].scrollIntoView();}
-    var nav_list = document.getElementById("navlist");
-    nav_list.appendChild(titlelinkBtn);
+        document.getElementsByClassName("textArea")[index].scrollIntoView(); window.scrollBy(0, -50);}
+    document.getElementById("navlist").appendChild(titlelinkBtn);
 }
 
 function convert(rawsub, title){
@@ -98,7 +108,7 @@ function show(data, title){
     textArea.className = "textArea";
     document.getElementsByClassName("text")[count].innerHTML = data;
 
-    document.getElementsByClassName("textArea")[count].scrollIntoView();
+    document.getElementsByClassName("textArea")[count].scrollIntoView(); window.scrollBy(0, -50);
 }
 
 function openTxt(index){
@@ -121,5 +131,19 @@ function download(data, filename){
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
         }, 0);
+    }
+}
+
+function changeTitleLinkState(){
+    let titlelinks = document.querySelectorAll(".titlelink");
+    let textareas = document.querySelectorAll(".textArea");
+    
+    if(textareas){
+        let index = textareas.length;
+
+        while(--index && window.scrollY + 50 < textareas[index].offsetTop) {}
+    
+        titlelinks.forEach((titlelink) => titlelink.classList.remove("active"));
+        titlelinks[index].classList.add("active");
     }
 }
