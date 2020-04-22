@@ -1,32 +1,69 @@
+let count = -1;
+
 function start(pressedBtn){
+    count++;
     var file = document.getElementById("inputFile");
 
     if(file.files.length){ //if file exists
         var reader = new FileReader();
         reader.readAsText(file.files[0]);
-        var title = file.files[0].name;  //later iteraten
+        var title = file.files[0].name;  //iteraten voor zip
+        newTextArea(title);
         
         reader.onload = function(e){
             if(title.endsWith(".srt")){
                 var rawsub = e.target.result;
-                converted = convert(rawsub, pressedBtn, title);
-                document.getElementsByClassName("hiddenOutput")[0].innerText = converted;
-                if(pressedBtn == "download"){
-                    download(converted, "converted");
+                converted = convert(rawsub, title); // 0-plain 1-txt
+                document.getElementsByClassName("hiddenOutput")[count].innerHTML = converted[1];
+                if(pressedBtn == "show"){
+                    show(converted[0], title);
                 }
-                else if(pressedBtn == "show"){
-                    show(converted, title);
-        }   }   }
-    }   
+            }
+        }    
+    }  
 }
 
-function convert(rawsub, pressedBtn, title){
+function newTextArea(title){
+    var index = count;
+
+    var copyBtn = document.createElement("button");
+    copyBtn.className = "copyBtn";
+    // openTxtBtn.onclick = function() {openTxt(index);}
+    // openTxtBtn.type = "button";
+    copyBtn.innerHTML = "<img src='/img/copyicon.png'/><strong>Copy</strong>";
+    var openTxtBtn = document.createElement("button");
+    openTxtBtn.className = "openTxt";
+    openTxtBtn.onclick = function() {openTxt(index);}
+    openTxtBtn.type = "button";
+    openTxtBtn.innerHTML = "<img src='/img/txtfileicon.png'/><strong>Open</strong>";
+    var title_h2 = document.createElement("h2");
+    title_h2.className = "title";
+    var text_p = document.createElement("p");
+    text_p.className = "text";
+    var hiddenOutput_p = document.createElement("p");
+    hiddenOutput_p.className = "hiddenOutput";
+
+    var textAreaDiv = document.createElement("div");
+    textAreaDiv.className = "textArea";
+    textAreaDiv.appendChild(openTxtBtn); textAreaDiv.appendChild(copyBtn);
+    textAreaDiv.appendChild(title_h2); textAreaDiv.appendChild(text_p);
+    textAreaDiv.appendChild(hiddenOutput_p); document.body.appendChild(textAreaDiv);
+
+    var titlelinkBtn = document.createElement("button");
+    titlelinkBtn.className = "titlelink";
+    titlelinkBtn.type = "button";
+    titlelinkBtn.innerText = title.replace(".srt", "");
+    titlelinkBtn.onclick = function() {
+        document.getElementsByClassName("textArea")[index].scrollIntoView();}
+    var nav_list = document.getElementById("navlist");
+    nav_list.appendChild(titlelinkBtn);
+}
+
+function convert(rawsub, title){
     let lines = rawsub.split("\n");
     var text = "";
-    if(pressedBtn == "download"){
-        title = title.replace(".srt", "");
-        text = title + "\n" + "—".repeat(title.length) + "\n";
-    }
+    title = title.replace(".srt", "");
+    var txtText = title + "\n" + "—".repeat(title.length) + "\n";
 
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
@@ -34,37 +71,39 @@ function convert(rawsub, pressedBtn, title){
         if(parseInt(line)){continue}
         else if( line.length <= 1){continue}
         else if( line.includes("-->")) {
-            if(pressedBtn == "show"){
-                var time = line.substring(0, line.indexOf(","));
-                var htmlTime = "<span id='time'>" + time + "</span>"; 
-            }continue}
+            var time = line.substring(0, line.indexOf(","));
+            var htmlTime = "<span id='time'>" + time + "</span>"; 
+            continue}
         else{
-            if(pressedBtn == "show"){
-                text = text + htmlTime + line + "<br>";
-            }
-            else if(pressedBtn == "download"){
-                if(line.includes("<i>") || line.includes("</i>")) line = line.replace("<i>", "");
-                if(line.includes("</i>")) line = line.replace("</i>", "");
-                text = text + line + "\n\n";
-            }
+            text = text + htmlTime + line + "<br>";
+            var txtLine = line;
+
+            if(line.includes("<i>") || line.includes("</i>")) 
+                txtLine = line.replace("<i>", "");
+            if(line.includes("</i>")) 
+                txtLine = line.replace("</i>", "");
+            txtText = txtText + txtLine + "\n\n";
         }
     }
-    return text;
+    var textList = [text, txtText];
+    return textList;
 }
 
 function show(data, title){
-    var titleElement = document.getElementsByClassName("title")[0];
-    var textArea = document.getElementsByClassName("textArea")[0];
+    var titleElement = document.getElementsByClassName("title")[count];
+    var textArea = document.getElementsByClassName("textArea")[count];
     title = title.replace(".srt", "");
     titleElement.innerText = title;
 
-    // textArea.className = textArea.className.replace("disabled", "active");
-    textArea.className = "textArea enabled";
-    // document.getElementById("text").innerText = data;
-    document.getElementsByClassName("text")[0].innerHTML = data;
+    textArea.className = "textArea";
+    document.getElementsByClassName("text")[count].innerHTML = data;
 
+    document.getElementsByClassName("textArea")[count].scrollIntoView();
+}
 
-    document.getElementsByClassName("textArea")[0].scrollIntoView({behavior: "smooth"});
+function openTxt(index){
+    var hiddenText = document.getElementsByClassName("hiddenOutput")[index].innerHTML;
+    download(hiddenText, "converted");
 }
 
 function download(data, filename){
@@ -84,21 +123,3 @@ function download(data, filename){
         }, 0);
     }
 }
-
-
-var copyBtn = document.getElementById("copyBtn");
-var clipboard = new ClipboardJS(copyBtn);
-
-clipboard.on('success', function(e){
-    console.log(e);
-});
-clipboard.on('error', function(e){
-    console.log(e);
-});
-
-// var textToCopy = document.getElementsByClassName("hiddenOutput")[0];
-// var textToCopy = document.getElementsByClassName("textArea")[0];
-// textToCopy.select();
-// // textToCopy.setSelectionRange(0, 99999); //for mobile devices
-// // document.execCommand("copy");
-// document.execCommand("copy");

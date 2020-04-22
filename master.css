@@ -1,6 +1,9 @@
+*{
+  font-family: "Raleway", sans-serif;
+}
+
 html, body{
     background-color: #ccc;
-    font-family: "Raleway", sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -8,7 +11,7 @@ html, body{
 body::-webkit-scrollbar{
   width: 20px;
   background-color: #2e2e2e;
-  background: linear-gradient(180deg, rgba(46,46,46,1) 0%, rgba(46,46,46,1) 7.2%, rgba(204,204,204,1)7.5%);
+  background: linear-gradient(180deg, rgba(46,46,46,1) 0%, rgba(46,46,46,1) 8%, rgba(204,204,204,1)8.2%);
 }
 
 body::-webkit-scrollbar-thumb{
@@ -17,17 +20,16 @@ body::-webkit-scrollbar-thumb{
   box-shadow: inset 0 0 4px #272727c4;
 }
 
-/* MOBILE NAVBAR */
-.navbar{
+/* MOBILE NAVBAR (TOP) */
+.topnavContainer{
     z-index: 9999;
-    /* background: #FF4141E6; */
     background: #2e2e2e;
     text-align: center;
     position: fixed;
     width: 100%;
 }
   
-.navbar img{
+.topnavContainer img{
     -webkit-user-drag: none;
 }
   
@@ -36,7 +38,7 @@ body::-webkit-scrollbar-thumb{
     padding: 5px 0px 5px 0px;
 }
   
-nav{
+.topnav{
     position: absolute;
     text-align: left;
     background: #2e2e2e;
@@ -46,16 +48,16 @@ nav{
     transform: scale(1, 0);
 }
   
-nav ul{
+.topnav ul{
     list-style: none;
 }
   
-nav li{
+.topnav li{
     margin-bottom: 16px;
     margin-left: 16px;
 }
   
-nav a{
+.topnav a{
     color: white;
     font-size: 23px;
     text-decoration: none;
@@ -63,11 +65,11 @@ nav a{
     transition: opacity 150ms ease-in-out;
 }
   
-nav .active{
+.topnav .active{
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 }
   
-nav a:hover{
+.topnav a:hover{
     border-bottom: 0;
     font-weight: bolder;
 }
@@ -76,11 +78,11 @@ nav a:hover{
     display: none;
 }
   
-.nav-toggle:checked ~ nav{
+.nav-toggle:checked ~ .topnav{
     transform: scale(1, 1);
 }
   
-.nav-toggle:checked ~ nav a{
+.nav-toggle:checked ~ .topnav a{
     opacity: 1;
     transition: opacity 250ms ease-in-out 250ms;
 }
@@ -95,6 +97,38 @@ nav a:hover{
 }
 /* EINDE NAVBAR */
 
+/* SUB NAVBAR */
+#subnavContainer{
+  position: fixed;
+  margin: 0; padding: 0;
+  transform: translate(-20px, 100px);
+}
+
+#navlist{
+  list-style: none;
+  width: 550px;
+}
+
+.titlelink{
+  font-size: 15px;
+  text-align: left;
+  margin-bottom: 8px;
+  background: none;
+  border: none;
+}
+
+.titlelink::before{
+  font-size: 20px;
+  content: "•";
+  position: absolute;
+  transform: translate(-11px, -3.5px);
+}
+
+.titlelink:focus{
+  outline: none;
+  font-weight: bolder;
+}
+/* EINDE NAV */
 
 #mainContainer{
     width: 30%;
@@ -102,9 +136,10 @@ nav a:hover{
     margin: 0 auto;
     padding: 100px;
     padding-top: 40px;
+    padding-bottom: 150px;
     max-width: 80%;
     height: 510px;
-    transform: translateY(13%);
+    transform: translateY(11%);
     border-radius: 3px;
 }
 
@@ -143,15 +178,11 @@ nav a:hover{
     margin: 0px auto;
 }
 
-#buttons{
-  display: flex;
-}
-
-#convertDownloadBtn, #convertShowBtn{
+#convertShowBtn{
   background: #ffcb20;
   display: block;
   margin: 0px auto;
-  margin-top: 30px;
+  margin-top: 40px;
   padding: 8px 20px;
   border-style: none;
   border-radius: 5px;
@@ -160,17 +191,17 @@ nav a:hover{
   transition: all 0.5s ease-in-out;
 }
 
-#convertDownloadBtn:hover, #convertShowBtn:hover{
+#convertShowBtn:hover{
   background: #ffe600;
   font-size: 16.3px;
 }
 
 .textArea{
-  margin-top: 30px;
   word-wrap: break-word;
   width: 30%;
   background-color: white;
   margin: 0 auto;
+  margin-bottom: 30px;
   padding: 100px;
   padding-top: 60px;
   padding-bottom: 10px;
@@ -178,18 +209,14 @@ nav a:hover{
   border-radius: 3px;
 }
 
-.disabled{
-  display: none;
-}
-
-.active{
-  display: block;
-}
-
 .title{
   font-size: 20px;
   padding-bottom: 10px;
   border-bottom: 3px solid #ffcb20;
+}
+
+.text{
+  font-size: 17px;
 }
 
 #time{
@@ -206,6 +233,33 @@ nav a:hover{
   display: none;
 }
 
+.openTxt, .copyBtn{
+  width: 95px;
+  padding-left: 30px;
+  height: 32px;
+  float: right;
+  border: none;
+  background: none;
+  transform: translate(75px, -30px);
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: #ffcb20;
+  margin-left: 10px;
+}
+
+.openTxt > img{
+  position: absolute;
+  transform: translate(-25px, 0px);
+  width: 19px;
+}
+
+
+.copyBtn > img{
+  position: absolute;
+  width: 19px;
+  transform: translate(-25px, 0px);
+}
+
 
 /* NAVBAR ZONDER TOGGLE (VOOR DESKTOP WEBPAGINA) */
 @media only screen and (min-width: 800px){
@@ -213,7 +267,7 @@ nav a:hover{
       display: none;
     }
   
-    .navbar{
+    .topnavContainer{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       justify-content: center;
@@ -221,16 +275,16 @@ nav a:hover{
   
     .logo{
       display: grid;
-      width: 40%;
+      width: 33%;
       position: relative;
-      left: 109.5%;
+      left: 117%;
       transform: translateX(50%);
       grid-column: 2;
       align-self: center;
       z-index: 1;
     }
   
-    nav{
+    .topnav{
       display: grid;
       transform: scale(1, 1);
       background: none;
@@ -239,13 +293,13 @@ nav a:hover{
       transform: translateY(-50%);
     }
   
-    nav a{
+    .topnav a{
       opacity: 1;
       position: relative;
     }
   
-    nav a::before,
-    nav a::after{
+    .topnav a::before,
+    .topnav a::after{
       content: '';
       display: block;
       height: 4px;
@@ -257,30 +311,30 @@ nav a:hover{
       transition: transform ease-in-out 250ms;
     }
   
-    nav a::before{
+    .topnav a::before{
       background: #fcbe19;
       top: -7px;
       transform-origin: left;
       border-top-right-radius: 20px;
     }
   
-    nav a::after{
+    .topnav a::after{
       top: 30px;
       transform-origin: right;
       border-bottom-left-radius: 20px;
       background: black;
     }
   
-    nav a:hover::before, nav a:hover::after{
+    .topnav a:hover::before, .topnav a:hover::after{
       transform: scale(1, 1);
     }
   
-    nav ul{
+    .topnav ul{
       display: flex;
       margin: 0 auto;
     }
   
-    nav li{
+    .topnav li{
       margin-left: 50px;
       margin-bottom: 0;
     }

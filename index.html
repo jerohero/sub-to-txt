@@ -10,24 +10,32 @@
 </head>
 <body>
     <header>
-        <div class="navbar">
+        <div class="topnavContainer">
             <a href="index.html">
-            <img class="logo" src="img/logo.png" alt="logo">
+                 <img class="logo" src="img/logo.png" alt="logo">
             </a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
-            <nav>
-            <ul class="nav-leftarea">
-                <li><a href="index.html">github</a></li>
-            </ul>
-            <ul class="nav-rightarea">
-                <li><a href="merch.html">contact</a></li>
-            </ul>
+            <nav class="topnav">
+                <ul class="nav-leftarea">
+                    <li><a href="index.html">github</a></li>
+                </ul>
+                <ul class="nav-rightarea">
+                    <li><a href="merch.html">contact</a></li>
+                </ul>
             </nav>
             <label for="nav-toggle" class="nav-toggle-label">
-            <img class="articleIcon" src="img/dropdownicon.png" alt="Article icon">
+                 <img class="articleIcon" src="img/dropdownicon.png" alt="Article icon">
             </label>
         </div>
     </header>
+
+    <div id="subnavContainer">
+        <nav id="subnav">
+            <ul>
+                <li id="navlist"></li>
+            </ul>
+        </nav>
+    </div>
 
     <main>
         <div id="mainContainer">
@@ -41,18 +49,9 @@
                 <label class="inputButton"> <p>Select <strong>.srt</strong> file.</p>
                     <input type="file" id="inputFile" multiple accept=".srt">
                 </label>
-                <div id="buttons">
-                    <button id="convertDownloadBtn" type="button" onclick="start('download')"><strong>Convert</strong> & <strong>download</strong></button>
-                    <button id="convertShowBtn" type="button" onclick="start('show')"><strong>Convert</strong> & <strong>show here</strong></button>
-                </div>
+                <button id="convertShowBtn" type="button" onclick="start('show')"><strong>Convert</strong> & <strong>show</strong></button>
             </form>
          </div>
-        <div class="textArea active">
-            <button id="copyBtn">Copy to clipboard</button>
-            <h2 class="title"></h2>
-            <p class="text"></p>
-            <p class="hiddenOutput"></p>
-        </div>
     </main>
 
     <script src="main.js"></script>
