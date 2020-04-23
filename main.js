@@ -43,11 +43,6 @@ function newTextArea(title){
     openTxtBtn.onclick = function() {openTxt(index);}
     openTxtBtn.type = "button";
     openTxtBtn.innerHTML = "<img src='/img/txtfileicon.png'/><strong>Open</strong>";
-    var closeBtn = document.createElement("button");
-    closeBtn.className = "closeArea";
-    closeBtn.onclick = function() {closeTextArea(index);}
-    closeBtn.type = "button";
-    closeBtn.innerHTML = "&#10006;";
     var title_h2 = document.createElement("h2");
     title_h2.className = "title";
     var text_p = document.createElement("p");
@@ -57,7 +52,6 @@ function newTextArea(title){
 
     var textAreaDiv = document.createElement("div");
     textAreaDiv.className = "textArea";
-    textAreaDiv.appendChild(closeBtn);
     textAreaDiv.appendChild(openTxtBtn); textAreaDiv.appendChild(copyBtn);
     textAreaDiv.appendChild(title_h2); textAreaDiv.appendChild(text_p);
     textAreaDiv.appendChild(hiddenOutput_p); document.body.appendChild(textAreaDiv);
@@ -70,6 +64,14 @@ function newTextArea(title){
         homelinkBtn.onclick = function() {
             document.getElementById("mainContainer").scrollIntoView(); window.scrollBy(0, -100);}
         document.getElementById("navlist").appendChild(homelinkBtn);
+
+        resetBtn = document.createElement("button");
+        resetBtn.innerText = "Reset";
+        resetBtn.className = "resetBtn";
+        resetBtn.type = "button";
+        resetBtn.onclick = function() { refreshPage(); }
+        document.getElementById("navlist").appendChild(resetBtn);
+
     }
     var titlelinkBtn = document.createElement("button");
     titlelinkBtn.className = "titlelink";
@@ -78,16 +80,6 @@ function newTextArea(title){
     titlelinkBtn.onclick = function() {
         document.getElementsByClassName("textArea")[index].scrollIntoView(); window.scrollBy(0, -50);}
     document.getElementById("navlist").appendChild(titlelinkBtn);
-}
-
-function closeTextArea(index){
-    var textArea = document.getElementsByClassName("textArea")[index];
-    // document.body.removeChild(textArea);
-    
-    // textArea.removeChild();
-    // document.getElementsByClassName("copyBtn")[index].remove;
-    // console.log("ehe");
-    
 }
 
 function convertSrt(rawsub, title){
@@ -121,7 +113,6 @@ function convertSrt(rawsub, title){
 }
 
 function convertAss(rawsub, title){
-    
     rawsub = rawsub.substring(rawsub.indexOf("Dialogue:"), rawsub.length);
     rawsub = rawsub.replace(/{\\i1}/g, "").replace(/{\\i0}/g, "");
     let lines = rawsub.split("\n");
@@ -167,7 +158,7 @@ function show(data, title){
 
 function openTxt(index){
     var hiddenText = document.getElementsByClassName("hiddenOutput")[index].innerHTML;
-    download(hiddenText, "converted");
+    download(hiddenText, "converted", "text/plain;charset=utf-8");
 }
 
 function copyTxt(index, title){
@@ -176,8 +167,8 @@ function copyTxt(index, title){
     alert("Copied subtitles from:\n" + title);
 }
 
-function download(data, filename){
-    var file = new Blob([data], {type: "text/plain;charset=utf-8"});
+function download(data, filename, type){
+    var file = new Blob([data], {type: type});
     if(window.navigator.msSaveOrOpenBlob) //IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
     else{ //wacky browsers
@@ -196,8 +187,7 @@ function download(data, filename){
 
 function changeTitleLinkState(){
     let titlelinks = document.querySelectorAll(".titlelink");
-    // let textareas = document.querySelectorAll(".textArea");
-    let textareas = document.body.getElementsByClassName("textArea");
+    let textareas = document.querySelectorAll(".textArea");
     
     if(textareas){
         let index = textareas.length;
@@ -207,4 +197,8 @@ function changeTitleLinkState(){
         titlelinks.forEach((titlelink) => titlelink.classList.remove("active"));
         titlelinks[index].classList.add("active");
     }
+}
+
+function refreshPage(){
+    location.reload();
 }

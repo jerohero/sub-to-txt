@@ -6,7 +6,6 @@
     <title>Sub to text converter</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="master.css">
-    <!-- <script src="js/main.js"></script> -->
 </head>
 <body>
     <header>
@@ -20,7 +19,7 @@
                     <li><a href="https://github.com/jerohero/sub-to-txt" target="_blank">github</a></li>
                 </ul>
                 <ul class="nav-rightarea">
-                    <li><a href="info.html">info</a></li>
+                    <li><a href="index.html">home</a></li>
                 </ul>
             </nav>
             <label for="nav-toggle" class="nav-toggle-label">
@@ -40,18 +39,22 @@
     <main>
         <div id="mainContainer">
             <header>
-                <img src="../img/headerimg1.jpg" alt="img">
-                <h1><span class="yellow">sub</span> > <span class="black">txt</span> converter tool</h1>
+                <img src="../img/headerimg2.png" alt="img">
+                <h1>What is <span class="yellow">sub</span> > <span class="black">txt</span> ?</h1>
             </header>
-            <p>With this tool you can convert subtitles (in .srt or .ass format) to raw text.</p>
-            <form name="inputForm">
-
-                <label class="inputButton"> <p>Select <strong>.srt</strong> or <strong>.ass</strong> file.</p>
-                    <input type="file" id="inputFile" multiple accept=".srt, .ass">
-                </label>
-                <button id="convertShowBtn" type="button" onclick="start('show')"><strong>Convert</strong> & <strong>show</strong></button>
-            </form>
-         </div>
+            <p>This tool allows you to convert the popular softsub format <i>.srt</i> to plain text. <br>For specific reasons the <i>.ass</i> file format is also accepted.</p>
+            <p>This tool is useful for searching for keywords in subtitle files.<br>The timestamps of each line has been made visible to make this easier. <br>Searching can be done by pressing CTRL+F on the keyboard.</p>
+            <p>The user is able to keep adding new subtitle files; the texts will continue being added to the page. They can easily be navigated through with buttons.</p>
+            <p>More supported file formats (including .zip) might be added in the future.</p>
+            <p>This tool was made by Jeroen Bol from the Netherlands.</p>
+        </div>
+        <div id="extraInfoContainer">
+            <p>Subtitle files can be found on the following websites:</p>
+            <a href="https://www.opensubtitles.org/">opensubtitles.org</a>
+            <a href="https://downsub.com/">downsub.com</a>
+            <a href="https://www.addic7ed.com/">addic7ed.com</a>
+            <a href="https://www.podnapisi.net/">podnapisi.net</a>
+        </div>
     </main>
 
     <script src="main.js"></script>
