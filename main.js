@@ -14,9 +14,11 @@ function start(pressedBtn){
                 var rawsub = e.target.result;
                 if(title.endsWith(".srt")){
                     converted = convertSrt(rawsub, title); // 0-plain 1-txt
+                    title = title.replace(".srt", "");
                 }
                 else if(title.endsWith(".ass")){
                     converted = convertAss(rawsub, title);  //0-plain 1-txt
+                    title = title.replace(".ass", "");
                 }
                 document.getElementsByClassName("hiddenOutput")[count].innerHTML = converted[1];
                 if(pressedBtn == "show"){
@@ -41,6 +43,11 @@ function newTextArea(title){
     openTxtBtn.onclick = function() {openTxt(index);}
     openTxtBtn.type = "button";
     openTxtBtn.innerHTML = "<img src='/img/txtfileicon.png'/><strong>Open</strong>";
+    var closeBtn = document.createElement("button");
+    closeBtn.className = "closeArea";
+    closeBtn.onclick = function() {closeTextArea(index);}
+    closeBtn.type = "button";
+    closeBtn.innerHTML = "&#10006;";
     var title_h2 = document.createElement("h2");
     title_h2.className = "title";
     var text_p = document.createElement("p");
@@ -50,6 +57,7 @@ function newTextArea(title){
 
     var textAreaDiv = document.createElement("div");
     textAreaDiv.className = "textArea";
+    textAreaDiv.appendChild(closeBtn);
     textAreaDiv.appendChild(openTxtBtn); textAreaDiv.appendChild(copyBtn);
     textAreaDiv.appendChild(title_h2); textAreaDiv.appendChild(text_p);
     textAreaDiv.appendChild(hiddenOutput_p); document.body.appendChild(textAreaDiv);
@@ -66,10 +74,20 @@ function newTextArea(title){
     var titlelinkBtn = document.createElement("button");
     titlelinkBtn.className = "titlelink";
     titlelinkBtn.type = "button";
-    titlelinkBtn.innerText = title.replace(".srt", "");
+    titlelinkBtn.innerText = title.replace(".srt", "").replace(".ass", "");
     titlelinkBtn.onclick = function() {
         document.getElementsByClassName("textArea")[index].scrollIntoView(); window.scrollBy(0, -50);}
     document.getElementById("navlist").appendChild(titlelinkBtn);
+}
+
+function closeTextArea(index){
+    var textArea = document.getElementsByClassName("textArea")[index];
+    // document.body.removeChild(textArea);
+    
+    // textArea.removeChild();
+    // document.getElementsByClassName("copyBtn")[index].remove;
+    // console.log("ehe");
+    
 }
 
 function convertSrt(rawsub, title){
@@ -105,22 +123,33 @@ function convertSrt(rawsub, title){
 function convertAss(rawsub, title){
     
     rawsub = rawsub.substring(rawsub.indexOf("Dialogue:"), rawsub.length);
-    // rawsub = rawsub.replace(/\\N/g, "\n");
     rawsub = rawsub.replace(/{\\i1}/g, "").replace(/{\\i0}/g, "");
     let lines = rawsub.split("\n");
     var text = "";
     title = title.replace(".ass", "");
     var txtText = title + "\n" + "—".repeat(title.length) + "\n";
-    txtText = txtText + rawsub;
     
 
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
         let splittedLine = line.split("Default");
-        console.log(splittedLine);
-        // if()
+        let time = splittedLine[0];
+        time = time.substring(time.indexOf(",") +1, time.indexOf("."));
+        if(time.substring(0, time.indexOf(":")) <= 24){
+            time = "0" + time;
+        }
+        var htmlTime = "<span id='time'>" + time + "</span>"; 
+        
+        let lineText = splittedLine[1];
+        lineText = lineText.substring(9);
+        var txtLineText = lineText.replace(/\\N/g, "\n");
+        lineText = lineText + "<br>";
+        txtLineText = txtLineText + "\n\n";
+        txtText = txtText + txtLineText;
+        lineText = lineText.replace(/\\N/g, "<br>");
+        text = text + htmlTime + lineText;
     }
-
+    
     var textList = [text, txtText];
     return textList;
 }
@@ -128,7 +157,6 @@ function convertAss(rawsub, title){
 function show(data, title){
     var titleElement = document.getElementsByClassName("title")[count];
     var textArea = document.getElementsByClassName("textArea")[count];
-    title = title.replace(".srt", "");
     titleElement.innerText = title;
 
     textArea.className = "textArea";
@@ -168,7 +196,8 @@ function download(data, filename){
 
 function changeTitleLinkState(){
     let titlelinks = document.querySelectorAll(".titlelink");
-    let textareas = document.querySelectorAll(".textArea");
+    // let textareas = document.querySelectorAll(".textArea");
+    let textareas = document.body.getElementsByClassName("textArea");
     
     if(textareas){
         let index = textareas.length;
