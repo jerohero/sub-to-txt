@@ -177,7 +177,7 @@ body::-webkit-scrollbar-thumb{
 }
 /* EINDE NAV */
 
-#mainContainer{
+#mainContainer, #infoMainContainer{
     width: 30%;
     background-color: white;
     margin: 0 auto;
@@ -190,12 +190,16 @@ body::-webkit-scrollbar-thumb{
     border-radius: 3px;
 }
 
-#mainContainer > header > img{
+#infoMainContainer{
+  height: 550px;
+}
+
+#mainContainer > header > img, #infoMainContainer > header > img{
     width: 100%;
     border-radius: 3px;
 }
 
-#mainContainer > header > h1, #mainContainer > p{
+#mainContainer > header > h1, #mainContainer > p, #infoMainContainer > header > h1, #infoMainContainer > p{
     text-align: center;
 }
 
@@ -429,11 +433,11 @@ body::-webkit-scrollbar-thumb{
           left:0px;
         }
         .nav-rightarea{
-          right:0px;
+          right:95px;
         }
       }
 }
-/*  */
+/* EIND NAV */
 
 @media only screen and (max-width: 1500px){
   #subnavContainer{
@@ -446,24 +450,40 @@ body::-webkit-scrollbar-thumb{
   .titlelink{
     font-size: 13px;
   }
+  #mainContainer{
+    height: 400px;
+  }
 }
 
 @media only screen and (max-width: 1050px){
   #subnavContainer{
     display: none;
   }
+  #infoMainContainer{
+    height: 700px;
+  }
 }
 
 @media only screen and (max-width: 800px){
-  #mainContainer{
+  #mainContainer, #infoMainContainer{
     padding: 40px;
     padding-bottom: 70px;
     width: 80%;
+    height: 500px;
   }
 
-  #mainContainer header img{
+  #mainContainer header img, #infoMainContainer header img{
     width: 70%;
     transform: translateX(21%);
+  }
+
+  #infoMainContainer p, #infoMainContainer p{
+    font-size: 15px;
+  }
+
+  #extraInfoContainer{
+    padding: 40px;
+    width: 80%;
   }
 
   .textArea{
@@ -477,6 +497,18 @@ body::-webkit-scrollbar-thumb{
 
   .copyBtn, .openTxt{
     transform: translate(15px, -20px);
+  }
+}
+
+@media only screen and (max-width: 500px){
+  #infoMainContainer{
+    height: 600px;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  #mainContainer{
+    height: 430px;
   }
 }
 

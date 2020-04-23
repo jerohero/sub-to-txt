@@ -1,3 +1,5 @@
+// TODO iets aan de onderkant als er nog niks geconvert is
+
 let count = -1;
 
 function start(pressedBtn){
