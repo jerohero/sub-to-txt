@@ -1,4 +1,4 @@
-// TODO iets aan de onderkant als er nog niks geconvert is
+// TODO iets aan de onderkant als er nog niks geconvert i
 
 let count = -1;
 
