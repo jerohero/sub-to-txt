@@ -281,6 +281,12 @@ body::-webkit-scrollbar-thumb{
   user-select: none;
 }
 
+#actor{
+  font-size: 15px;
+  margin-left: -60px;
+  font-weight: bold;
+}
+
 .hiddenOutput{
   display: none;
 }

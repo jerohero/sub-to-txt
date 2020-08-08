@@ -123,6 +123,7 @@ function convertAss(rawsub, title){
     var txtText = title + "\n" + "—".repeat(title.length) + "\n";
     
 
+    var previousactor;
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
         let splittedLine = line.split("0,0,0,,");
@@ -131,7 +132,18 @@ function convertAss(rawsub, title){
         if(time.substring(0, time.indexOf(":")) <= 24){
             time = "0" + time;
         }
-        var htmlTime = "<span id='time'>" + time + "</span>"; 
+        var htmlTime = "<span id='time'>" + time + "</span>";
+
+        var actor = "";
+        if(!splittedLine[0].includes(",Default,")){
+            const info = splittedLine[0].split(',');
+            actor = info[info.length - 2];
+            if(previousactor !== actor) {
+                htmlTime = "</br> <span id='actor'>" + actor + "</span>" + "</br>" + htmlTime;
+            }
+            previousactor = actor;
+        }
+        
         
         if(splittedLine[1]) {
             let lineText = splittedLine[1];
