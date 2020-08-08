@@ -123,6 +123,9 @@ function convertAss(rawsub, title){
     var txtText = title + "\n" + "—".repeat(title.length) + "\n";
     
 
+    var actorColor = {};
+    var colors = ["#E67E22", "#F1C40F", "#2ECC71", "#1ABC9C", "#1ABC9C", "#3498DB", "#9B59B6", "#E74C3C"];
+
     var previousactor;
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
@@ -138,8 +141,11 @@ function convertAss(rawsub, title){
         if(!splittedLine[0].includes(",Default,")){
             const info = splittedLine[0].split(',');
             actor = info[info.length - 2];
+            if(!(actor in actorColor)) {
+                actorColor[actor] = colors[Math.floor(Math.random() * colors.length)];
+            }
             if(previousactor !== actor) {
-                htmlTime = "</br> <span id='actor'>" + actor + "</span>" + "</br>" + htmlTime;
+                htmlTime = "</br> <span id='actor' style='color:" + actorColor[actor] + "'>" + actor + "</span>" + "</br>" + htmlTime;
             }
             previousactor = actor;
         }
@@ -156,8 +162,8 @@ function convertAss(rawsub, title){
             text = text + htmlTime + lineText;
         }
     }
-    
     var textList = [text, txtText];
+
     return textList;
 }
 
