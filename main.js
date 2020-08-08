@@ -133,14 +133,16 @@ function convertAss(rawsub, title){
         }
         var htmlTime = "<span id='time'>" + time + "</span>"; 
         
-        let lineText = splittedLine[1];
-        // lineText = lineText.substring(9);
-        var txtLineText = lineText.replace(/\\N/g, "\n");
-        lineText = lineText + "<br>";
-        txtLineText = txtLineText + "\n\n";
-        txtText = txtText + txtLineText;
-        lineText = lineText.replace(/\\N/g, "<br>");
-        text = text + htmlTime + lineText;
+        if(splittedLine[1]) {
+            let lineText = splittedLine[1];
+            var txtLineText = lineText.replace(/\\N/g, "\n");
+            lineText = lineText + "<br>";
+            txtLineText = txtLineText + "\n\n";
+            txtText = txtText + txtLineText;
+            lineText = lineText.replace(/\\N/g, "<br>");
+            lineText = lineText.replace(/{[^}]*}/g, "");
+            text = text + htmlTime + lineText;
+        }
     }
     
     var textList = [text, txtText];
