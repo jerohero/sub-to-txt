@@ -125,7 +125,7 @@ function convertAss(rawsub, title){
 
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
-        let splittedLine = line.split("Default");
+        let splittedLine = line.split("0,0,0,,");
         let time = splittedLine[0];
         time = time.substring(time.indexOf(",") +1, time.indexOf("."));
         if(time.substring(0, time.indexOf(":")) <= 24){
@@ -134,7 +134,7 @@ function convertAss(rawsub, title){
         var htmlTime = "<span id='time'>" + time + "</span>"; 
         
         let lineText = splittedLine[1];
-        lineText = lineText.substring(9);
+        // lineText = lineText.substring(9);
         var txtLineText = lineText.replace(/\\N/g, "\n");
         lineText = lineText + "<br>";
         txtLineText = txtLineText + "\n\n";
