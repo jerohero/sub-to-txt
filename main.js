@@ -11,7 +11,6 @@ function start(pressedBtn){
         reader.readAsText(file.files[0]);
         var title = file.files[0].name;  //iteraten voor zip
         newTextArea(title);
-        
         reader.onload = function(e){
                 var rawsub = e.target.result;
                 if(title.endsWith(".srt")){
@@ -116,44 +115,60 @@ function convertSrt(rawsub, title){
 
 function convertAss(rawsub, title){
     rawsub = rawsub.substring(rawsub.indexOf("Dialogue:"), rawsub.length);
-    rawsub = rawsub.replace(/{\\i1}/g, "").replace(/{\\i0}/g, "");
+    rawsub = rawsub.replace(/{\\i1}/g, "").replace(/{\\i0}/g, "").replace(/\\N/g, " ");
     let lines = rawsub.split("\n");
-    var text = "";
+    let text = "";
     title = title.replace(".ass", "");
-    var txtText = title + "\n" + "—".repeat(title.length) + "\n";
+    let txtText = title + "\n" + "—".repeat(title.length) + "\n";
     
 
-    var actorColor = {};
-    var colors = ["#E67E22", "#F1C40F", "#2ECC71", "#1ABC9C", "#1ABC9C", "#3498DB", "#9B59B6", "#E74C3C"];
+    let actorColor = {};
+    const colors = ["#E67E22", "#F1C40F", "#2ECC71", "#1ABC9C", "#1ABC9C", "#3498DB", "#9B59B6", "#E74C3C"];
 
-    var previousactor;
+    let previousactor;
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
-        let splittedLine = line.split("0,0,0,,");
-        let time = splittedLine[0];
-        time = time.substring(time.indexOf(",") +1, time.indexOf("."));
-        if(time.substring(0, time.indexOf(":")) <= 24){
-            time = "0" + time;
-        }
-        var htmlTime = "<span id='time'>" + time + "</span>";
 
-        var actor = "";
-        if(!splittedLine[0].includes(",Default,")){
-            const info = splittedLine[0].split(',');
-            actor = info[info.length - 2];
-            if(!(actor in actorColor)) {
-                actorColor[actor] = colors[Math.floor(Math.random() * colors.length)];
+        let splittedLine = [];
+        if(line.includes("0,0,0,,")) {
+            splittedLine = line.split("0,0,0,,"); }
+        else if(line.includes("00,00,00,,")) {
+            splittedLine = line.split("00,00,00,,"); }
+        else if(line.includes("000,000,000,,")) {
+            splittedLine = line.split("000,000,000,,"); }
+        else if(line.includes("0000,0000,0000,,")) {
+            splittedLine = line.split("0000,0000,0000,,"); }
+
+
+        if(splittedLine[1]) { // the line exists
+            let time = splittedLine[0];
+            time = time.substring(time.indexOf(",") +1, time.indexOf("."));
+            if(time.substring(0, time.indexOf(":")) <= 24){
+                time = "0" + time;
             }
-            if(previousactor !== actor) {
-                htmlTime = "</br> <span id='actor' style='color:" + actorColor[actor] + "'>" + actor + "</span>" + "</br>" + htmlTime;
+            let htmlTime = "<span id='time'>" + time + "</span>";
+
+            let actor = "";
+            if(!splittedLine[0].includes(",Default,")){
+                const info = splittedLine[0].split(',');
+                actor = info[info.length - 2];
+                
+                if(!(actor in actorColor)) {
+                    actorColor[actor] = colors[Math.floor(Math.random() * colors.length)];
+                }
+                if(previousactor !== actor) {
+                    if(actor !== "") {
+                        htmlTime = "</br> <span id='actor' style='color:" + actorColor[actor] + "'>" + actor.charAt(0).toUpperCase() + actor.slice(1) + "</span>" + "</br>" + htmlTime;
+                    }
+                    else {
+                        htmlTime = "</br>" + htmlTime;
+                    }
+                }
+                previousactor = actor;
             }
-            previousactor = actor;
-        }
-        
-        
-        if(splittedLine[1]) {
+            
             let lineText = splittedLine[1];
-            var txtLineText = lineText.replace(/\\N/g, "\n");
+            let txtLineText = lineText.replace(/\\N/g, "\n");
             lineText = lineText + "<br>";
             txtLineText = txtLineText + "\n\n";
             txtText = txtText + txtLineText;
@@ -162,7 +177,7 @@ function convertAss(rawsub, title){
             text = text + htmlTime + lineText;
         }
     }
-    var textList = [text, txtText];
+    const textList = [text, txtText];
 
     return textList;
 }
