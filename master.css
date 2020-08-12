@@ -178,14 +178,13 @@ body::-webkit-scrollbar-thumb{
 /* EINDE NAV */
 
 #mainContainer, #infoMainContainer{
-    width: 30%;
+    width: 40%;
     background-color: white;
     margin: 0 auto;
-    padding: 100px;
     padding-top: 40px;
     padding-bottom: 150px;
     max-width: 80%;
-    height: 510px;
+    height: 580px;
     transform: translateY(11%);
     border-radius: 3px;
 }
@@ -194,7 +193,11 @@ body::-webkit-scrollbar-thumb{
   height: 550px;
 }
 
-#mainContainer > header > img, #infoMainContainer > header > img{
+#mainContainer > header > img{
+  width: 100%;
+}
+
+#infoMainContainer > header > img{
     width: 100%;
     border-radius: 3px;
 }
@@ -225,7 +228,7 @@ body::-webkit-scrollbar-thumb{
     padding: 8px 10px;
     border-radius: 4px;
     display: block;
-    width: 85%;
+    width: 55%;
     margin: 0px auto;
 }
 
