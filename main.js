@@ -14,11 +14,11 @@ function start(pressedBtn){
         reader.onload = function(e){
                 var rawsub = e.target.result;
                 if(title.endsWith(".srt")){
-                    converted = convertSrt(rawsub, title); // 0-plain 1-txt
+                    converted = convertSrt(rawsub, title);
                     title = title.replace(".srt", "");
                 }
                 else if(title.endsWith(".ass")){
-                    converted = convertAss(rawsub, title);  //0-plain 1-txt
+                    converted = convertAss(rawsub, title);
                     title = title.replace(".ass", "");
                 }
                 document.getElementsByClassName("hiddenOutput")[count].innerHTML = converted[1];
@@ -113,22 +113,23 @@ function convertSrt(rawsub, title){
     return textList;
 }
 
+
 function convertAss(rawsub, title){
-    rawsub = rawsub.substring(rawsub.indexOf("Dialogue:"), rawsub.length);
-    rawsub = rawsub.replace(/{\\i1}/g, "").replace(/{\\i0}/g, "").replace(/\\N/g, " ");
-    let lines = rawsub.split("\n");
-    let text = "";
+    rawsub = rawsub.substring(rawsub.indexOf("Dialogue:"), rawsub.length); // Gets rid of all the unneeded information in the beginning of the file 
+    rawsub = rawsub.replace(/{\\i1}/g, "").replace(/{\\i0}/g, "").replace(/{[^}]*}/g, "").replace(/\\N/g, " "); // Gets rid of unwanted information in the .ass file
+    let lines = rawsub.split("\n"); // Create an array with all lines
+    let htmltext = "";
     title = title.replace(".ass", "");
-    let txtText = title + "\n" + "—".repeat(title.length) + "\n";
+    let rawtext = title + "\n" + "—".repeat(title.length) + "\n"; // Creates a title for raw txt
     
-
-    let actorColor = {};
+    let actorColor = {}; // actor:assigned color
     const colors = ["#E67E22", "#F1C40F", "#2ECC71", "#1ABC9C", "#1ABC9C", "#3498DB", "#9B59B6", "#E74C3C"];
-
     let previousactor;
-    for (let index = 0; index < lines.length; index++) {
+
+    for (let index = 0; index < lines.length; index++) { // For each line
         let line = lines[index];
 
+        // Splits the line's information with a pattern that might differ in amount of zero's
         let splittedLine = [];
         if(line.includes("0,0,0,,")) {
             splittedLine = line.split("0,0,0,,"); }
@@ -139,48 +140,49 @@ function convertAss(rawsub, title){
         else if(line.includes("0000,0000,0000,,")) {
             splittedLine = line.split("0000,0000,0000,,"); }
 
-
-        if(splittedLine[1]) { // the line exists
-            let time = splittedLine[0];
-            time = time.substring(time.indexOf(",") +1, time.indexOf("."));
+        if(splittedLine[1]) { // The line exists
+            let time = splittedLine[0]; // The first half of a line's information contains the timestamp
+            time = time.substring(time.indexOf(",") +1, time.indexOf(".")); // Grabs the exact information needed for timestamp
             if(time.substring(0, time.indexOf(":")) <= 24){
-                time = "0" + time;
+                time = "0" + time; // Adds 0 to the hour (eg 1:53:46 > 01:53:46), as long as it doesn't go over 24 hours
             }
-            let htmlTime = "<span id='time'>" + time + "</span>";
+            let htmlTime = "<span id='time'>" + time + "</span>"; // Creates an html object for the timestamp 
+
 
             let actor = "";
-            if(!splittedLine[0].includes(",Default,")){
+            if(!splittedLine[0].includes(",Default,")){ // If an actor is assigned
                 const info = splittedLine[0].split(',');
-                actor = info[info.length - 2];
+                actor = info[info.length - 2]; // Finds the actor in the information of the line's first half
                 
                 if(!(actor in actorColor)) {
-                    actorColor[actor] = colors[Math.floor(Math.random() * colors.length)];
+                    actorColor[actor] = colors[Math.floor(Math.random() * colors.length)]; // Assign random color to actor
                 }
                 if(previousactor !== actor) {
                     if(actor !== "") {
-                        htmlTime = "</br> <span id='actor' style='color:" + actorColor[actor] + "'>" + actor.charAt(0).toUpperCase() + actor.slice(1) + "</span>" + "</br>" + htmlTime;
+                        htmlTime = "</br> <span id='actor' style='color:" + actorColor[actor] + "'>" + actor.charAt(0).toUpperCase() + actor.slice(1) + "</span>" + "</br>" + htmlTime; // Actor in this line is different than previous line, so create a new actor HTML object
                     }
-                    else {
+                    else { // Assigned actor is empty
                         htmlTime = "</br>" + htmlTime;
                     }
                 }
                 previousactor = actor;
             }
             
+            // Adjust the line for HTML text and raw txt
             let lineText = splittedLine[1];
             let txtLineText = lineText.replace(/\\N/g, "\n");
             lineText = lineText + "<br>";
             txtLineText = txtLineText + "\n\n";
-            txtText = txtText + txtLineText;
+            rawtext = rawtext + txtLineText;
             lineText = lineText.replace(/\\N/g, "<br>");
-            lineText = lineText.replace(/{[^}]*}/g, "");
-            text = text + htmlTime + lineText;
+            htmltext = htmltext + htmlTime + lineText;
         }
     }
-    const textList = [text, txtText];
+    const textList = [htmltext, rawtext];
 
     return textList;
 }
+
 
 function show(data, title){
     var titleElement = document.getElementsByClassName("title")[count];
@@ -194,12 +196,12 @@ function show(data, title){
 }
 
 function openTxt(index){
-    var hiddenText = document.getElementsByClassName("hiddenOutput")[index].innerHTML;
+    const hiddenText = document.getElementsByClassName("hiddenOutput")[index].innerHTML;
     download(hiddenText, "converted", "text/plain;charset=utf-8");
 }
 
 function copyTxt(index, title){
-    var textToCopy = document.getElementsByClassName("hiddenOutput")[index].innerText;
+    const textToCopy = document.getElementsByClassName("hiddenOutput")[index].innerText;
     navigator.clipboard.writeText(textToCopy);
     alert("Copied subtitles from:\n" + title);
 }
