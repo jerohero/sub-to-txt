@@ -178,12 +178,11 @@ body::-webkit-scrollbar-thumb{
 /* EINDE NAV */
 
 #mainContainer, #infoMainContainer{
-    width: 40%;
+    width: 760px;
     background-color: white;
     margin: 0 auto;
     padding-top: 40px;
     padding-bottom: 150px;
-    max-width: 80%;
     height: 580px;
     transform: translateY(11%);
     border-radius: 3px;
@@ -252,7 +251,7 @@ body::-webkit-scrollbar-thumb{
 
 .textArea, #extraInfoContainer{
   word-wrap: break-word;
-  width: 30%;
+  width: 560px;
   background-color: white;
   margin: 0 auto;
   margin-bottom: 30px;
@@ -458,9 +457,6 @@ body::-webkit-scrollbar-thumb{
 @media only screen and (max-width: 1200px){
   .titlelink{
     font-size: 13px;
-  }
-  #mainContainer{
-    height: 400px;
   }
 }
 
