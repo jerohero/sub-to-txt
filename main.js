@@ -1,16 +1,14 @@
-// TODO iets aan de onderkant als er nog niks geconvert i
-
 let count = -1;
 
 function start(pressedBtn){
     count++;
-    var file = document.getElementById("inputFile");
+    const file = document.getElementById("inputFile");
 
     if(file.files.length){ //if file exists
         let converted = [];
-        var reader = new FileReader();
+        const reader = new FileReader();
         reader.readAsText(file.files[0]);
-        var title = file.files[0].name;  //iteraten voor zip
+        let title = file.files[0].name;  //iteraten voor zip
         newTextArea(title);
         reader.onload = function(e){
                 const rawsub = e.target.result;
@@ -34,58 +32,6 @@ function start(pressedBtn){
     }  
     changeTitleLinkState();
     window.addEventListener('scroll', changeTitleLinkState);
-}
-
-function newTextArea(title){
-    var index = count;
-
-    var copyBtn = document.createElement("button");
-    copyBtn.className = "copyBtn";
-    copyBtn.onclick = function() {copyTxt(index, title);}
-    copyBtn.type = "button";
-    copyBtn.innerHTML = "<img src='/img/copyicon.png'/><strong>Copy</strong>";
-    var openTxtBtn = document.createElement("button");
-    openTxtBtn.className = "openTxt";
-    openTxtBtn.onclick = function() {openTxt(index);}
-    openTxtBtn.type = "button";
-    openTxtBtn.innerHTML = "<img src='/img/txtfileicon.png'/><strong>Open</strong>";
-    var title_h2 = document.createElement("h2");
-    title_h2.className = "title";
-    var text_p = document.createElement("p");
-    text_p.className = "text";
-    var hiddenOutput_p = document.createElement("p");
-    hiddenOutput_p.className = "hiddenOutput";
-
-    var textAreaDiv = document.createElement("div");
-    textAreaDiv.className = "textArea";
-    textAreaDiv.appendChild(openTxtBtn); textAreaDiv.appendChild(copyBtn);
-    textAreaDiv.appendChild(title_h2); textAreaDiv.appendChild(text_p);
-    textAreaDiv.appendChild(hiddenOutput_p); document.body.appendChild(textAreaDiv);
-
-    if(count == 0){
-        homelinkBtn = document.createElement("button");
-        homelinkBtn.innerText = "Home"
-        homelinkBtn.className = "homelink";
-        homelinkBtn.type = "button";
-        homelinkBtn.onclick = function() {
-            document.getElementById("mainContainer").scrollIntoView(); window.scrollBy(0, -100);}
-        document.getElementById("navlist").appendChild(homelinkBtn);
-
-        resetBtn = document.createElement("button");
-        resetBtn.innerText = "Reset";
-        resetBtn.className = "resetBtn";
-        resetBtn.type = "button";
-        resetBtn.onclick = function() { refreshPage(); }
-        document.getElementById("navlist").appendChild(resetBtn);
-
-    }
-    var titlelinkBtn = document.createElement("button");
-    titlelinkBtn.className = "titlelink";
-    titlelinkBtn.type = "button";
-    titlelinkBtn.innerText = title.replace(".srt", "").replace(".ass", "");
-    titlelinkBtn.onclick = function() {
-        document.getElementsByClassName("textArea")[index].scrollIntoView(); window.scrollBy(0, -50);}
-    document.getElementById("navlist").appendChild(titlelinkBtn);
 }
 
 function convertSrt(rawsub, title){
@@ -189,8 +135,8 @@ function convertAss(rawsub, title){
 
 
 function show(data, title){
-    var titleElement = document.getElementsByClassName("title")[count];
-    var textArea = document.getElementsByClassName("textArea")[count];
+    const titleElement = document.getElementsByClassName("title")[count];
+    const textArea = document.getElementsByClassName("textArea")[count];
     titleElement.innerText = title;
 
     textArea.className = "textArea";
@@ -211,11 +157,11 @@ function copyTxt(index, title){
 }
 
 function download(data, filename, type){
-    var file = new Blob([data], {type: type});
+    const file = new Blob([data], {type: type});
     if(window.navigator.msSaveOrOpenBlob) //IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
     else{ //wacky browsers
-        var a = document.createElement("a"),
+        const a = document.createElement("a"),
             url = URL.createObjectURL(file);
         a.href = url;
         a.download = filename;
@@ -240,6 +186,58 @@ function changeTitleLinkState(){
         titlelinks.forEach((titlelink) => titlelink.classList.remove("active"));
         titlelinks[index].classList.add("active");
     }
+}
+
+function newTextArea(title){
+    const index = count;
+
+    const copyBtn = document.createElement("button");
+    copyBtn.className = "copyBtn";
+    copyBtn.onclick = function() {copyTxt(index, title);}
+    copyBtn.type = "button";
+    copyBtn.innerHTML = "<img src='/img/copyicon.png'/><strong>Copy</strong>";
+    const openTxtBtn = document.createElement("button");
+    openTxtBtn.className = "openTxt";
+    openTxtBtn.onclick = function() {openTxt(index);}
+    openTxtBtn.type = "button";
+    openTxtBtn.innerHTML = "<img src='/img/txtfileicon.png'/><strong>Open</strong>";
+    const title_h2 = document.createElement("h2");
+    title_h2.className = "title";
+    const text_p = document.createElement("p");
+    text_p.className = "text";
+    const hiddenOutput_p = document.createElement("p");
+    hiddenOutput_p.className = "hiddenOutput";
+
+    const textAreaDiv = document.createElement("div");
+    textAreaDiv.className = "textArea";
+    textAreaDiv.appendChild(openTxtBtn); textAreaDiv.appendChild(copyBtn);
+    textAreaDiv.appendChild(title_h2); textAreaDiv.appendChild(text_p);
+    textAreaDiv.appendChild(hiddenOutput_p); document.body.appendChild(textAreaDiv);
+
+    if(count == 0){
+        homelinkBtn = document.createElement("button");
+        homelinkBtn.innerText = "Home"
+        homelinkBtn.className = "homelink";
+        homelinkBtn.type = "button";
+        homelinkBtn.onclick = function() {
+            document.getElementById("mainContainer").scrollIntoView(); window.scrollBy(0, -100);}
+        document.getElementById("navlist").appendChild(homelinkBtn);
+
+        resetBtn = document.createElement("button");
+        resetBtn.innerText = "Reset";
+        resetBtn.className = "resetBtn";
+        resetBtn.type = "button";
+        resetBtn.onclick = function() { refreshPage(); }
+        document.getElementById("navlist").appendChild(resetBtn);
+
+    }
+    const titlelinkBtn = document.createElement("button");
+    titlelinkBtn.className = "titlelink";
+    titlelinkBtn.type = "button";
+    titlelinkBtn.innerText = title.replace(".srt", "").replace(".ass", "");
+    titlelinkBtn.onclick = function() {
+        document.getElementsByClassName("textArea")[index].scrollIntoView(); window.scrollBy(0, -50);}
+    document.getElementById("navlist").appendChild(titlelinkBtn);
 }
 
 function refreshPage(){
