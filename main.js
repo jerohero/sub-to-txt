@@ -7,12 +7,13 @@ function start(pressedBtn){
     var file = document.getElementById("inputFile");
 
     if(file.files.length){ //if file exists
+        let converted = [];
         var reader = new FileReader();
         reader.readAsText(file.files[0]);
         var title = file.files[0].name;  //iteraten voor zip
         newTextArea(title);
         reader.onload = function(e){
-                var rawsub = e.target.result;
+                const rawsub = e.target.result;
                 if(title.endsWith(".srt")){
                     converted = convertSrt(rawsub, title);
                     title = title.replace(".srt", "");
@@ -20,6 +21,10 @@ function start(pressedBtn){
                 else if(title.endsWith(".ass")){
                     converted = convertAss(rawsub, title);
                     title = title.replace(".ass", "");
+                }
+                else {
+                    converted[0] = "This file type is not supported.";
+                    converted[1] = "";
                 }
                 document.getElementsByClassName("hiddenOutput")[count].innerHTML = converted[1];
                 if(pressedBtn == "show"){
