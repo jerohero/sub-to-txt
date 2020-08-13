@@ -90,22 +90,23 @@ function newTextArea(title){
 
 function convertSrt(rawsub, title){
     let lines = rawsub.split("\n");
-    var text = "";
+    let text = "";
     title = title.replace(".srt", "");
-    var txtText = title + "\n" + "—".repeat(title.length) + "\n";
+    let txtText = title + "\n" + "—".repeat(title.length) + "\n";
 
+    let htmlTime;
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
 
         if(parseInt(line)){continue}
         else if( line.length <= 1){continue}
-        else if( line.includes("-->")) {
+        else if( line.includes("-->")) { // Line contains time stamp
             var time = line.substring(0, line.indexOf(","));
-            var htmlTime = "<span id='time'>" + time + "</span>"; 
+            htmlTime = "<span id='time'>" + time + "</span>"; 
             continue}
-        else{
+        else{ // Line is not a line containing the time stamp
             text = text + htmlTime + line + "<br>";
-            var txtLine = line;
+            let txtLine = line;
 
             if(line.includes("<i>") || line.includes("</i>")) 
                 txtLine = line.replace("<i>", "");
@@ -175,11 +176,9 @@ function convertAss(rawsub, title){
             
             // Adjust the line for HTML text and raw txt
             let lineText = splittedLine[1];
-            let txtLineText = lineText.replace(/\\N/g, "\n");
             lineText = lineText + "<br>";
-            txtLineText = txtLineText + "\n\n";
+            let txtLineText = lineText + "\n\n";
             rawtext = rawtext + txtLineText;
-            lineText = lineText.replace(/\\N/g, "<br>");
             htmltext = htmltext + htmlTime + lineText;
         }
     }
