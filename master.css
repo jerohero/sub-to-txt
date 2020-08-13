@@ -189,25 +189,43 @@ body::-webkit-scrollbar-thumb{
 }
 
 #infoMainContainer{
-  height: 650px;
+  padding: 40px;
+  width: 680px;
+  height: 770px;
 }
 
 #mainContainer > header > img{
   width: 100%;
 }
 
-#infoMainContainer > header > img{
-    width: 100%;
-    border-radius: 3px;
-}
-
 #mainContainer > header > h1, #mainContainer > p, #infoMainContainer > header > h1, #infoMainContainer > p{
     text-align: center;
 }
 
+#infoMainContainer > header > h1{
+  margin-bottom: 30px;
+}
+
 #faq{
+  padding: 10px;
+  padding-top: 0;
   list-style: none;
 }
+#faq li{
+  margin-bottom: 30px;
+}
+#faq li p, h3{
+  margin: 0;
+}
+#faq li h3{
+  margin-bottom: 10px;
+}
+#faq li a{
+  text-decoration: none;
+  color: #fcbe19;
+  text-shadow: 1px 1px black;
+}
+
 
 .yellow, .black{
     font-family: Helvetica, sans-serif;
