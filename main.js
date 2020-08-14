@@ -1,5 +1,4 @@
 let count = -1;
-
 function start(pressedBtn){
     count++;
     const file = document.getElementById("inputFile");
@@ -44,13 +43,11 @@ function convertSrt(rawsub, title){
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
 
-        if(parseInt(line)){continue}
-        else if( line.length <= 1){continue}
-        else if( line.includes("-->")) { // Line contains time stamp
+        if( line.includes("-->") && line.includes(":")) { // Line contains time stamp
             var time = line.substring(0, line.indexOf(","));
-            htmlTime = "<span id='time'>" + time + "</span>"; 
-            continue}
-        else{ // Line is not a line containing the time stamp
+            htmlTime = "<span id='time'>" + time + "</span>";
+        }
+        else if( line.length > 1 &! parseInt(line)){ // Line is not a line containing the time stamp
             text = text + htmlTime + line + "<br>";
             let txtLine = line;
 
@@ -61,7 +58,7 @@ function convertSrt(rawsub, title){
             txtText = txtText + txtLine + "\n\n";
         }
     }
-    var textList = [text, txtText];
+    const textList = [text, txtText];
     return textList;
 }
 
