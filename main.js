@@ -96,15 +96,14 @@ function convertAss(rawsub, title){
             let time = splittedLine[0]; // The first half of a line's information contains the timestamp
             time = time.substring(time.indexOf(",") +1, time.indexOf(".")); // Grabs the exact information needed for timestamp
             if(time.substring(0, time.indexOf(":")) <= 24){
-                time = "0" + time; // Adds 0 to the hour (eg 1:53:46 > 01:53:46), as long as it doesn't go over 24 hours
+                time = "0" + time; // Adds 0 to the hour, as long as it doesn't go over 24 hours
             }
-            let htmlTime = "<span id='time'>" + time + "</span>"; // Creates an html object for the timestamp 
+            let htmlTime = "<span id='time'>" + time + "</span>"; 
 
 
-            let actor = "";
-            if(!splittedLine[0].includes(",Default,")){ // If an actor is assigned
-                const info = splittedLine[0].split(',');
-                actor = info[info.length - 2]; // Finds the actor in the information of the line's first half
+            const info = splittedLine[0].split(',');
+            let actor = info[info.length - 2]; // Finds the actor in the information of the line's first half
+            if(actor !== "Default"){ // If an actor is assigned
                 
                 if(!(actor in actorColor)) {
                     actorColor[actor] = colors[Math.floor(Math.random() * colors.length)]; // Assign random color to actor
