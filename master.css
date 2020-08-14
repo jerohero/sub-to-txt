@@ -191,7 +191,7 @@ body::-webkit-scrollbar-thumb{
 #infoMainContainer{
   padding: 40px;
   width: 680px;
-  height: 770px;
+  height: 740px;
 }
 
 #mainContainer > header > img{
@@ -365,6 +365,12 @@ body::-webkit-scrollbar-thumb{
 
 #extraInfoContainer a:hover{
   color: #ffe600;
+}
+
+footer {
+  color: #777;
+  text-align: center;
+  margin: 100px auto 20px;
 }
 
 
