@@ -469,10 +469,21 @@ body::-webkit-scrollbar-thumb{
 }
 /* EIND NAV */
 
+@media only screen and (max-width: 1700px){
+  .titlelink{
+    font-size: 13px;
+  }
+
+  #subnavContainer{
+    transform: translate(240%, 70px);
+  }
+}
+
 @media only screen and (max-width: 1500px){
   #subnavContainer{
     transform: translate(-5%, 70px);
     width: 20%;
+    z-index: 0;
   }
 }
 

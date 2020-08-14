@@ -160,7 +160,7 @@ function download(data, filename, type){
     const file = new Blob([data], {type: type});
     if(window.navigator.msSaveOrOpenBlob) //IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
-    else{ //wacky browsers
+    else{ //other browser support
         const a = document.createElement("a"),
             url = URL.createObjectURL(file);
         a.href = url;
@@ -234,7 +234,11 @@ function newTextArea(title){
     const titlelinkBtn = document.createElement("button");
     titlelinkBtn.className = "titlelink";
     titlelinkBtn.type = "button";
-    titlelinkBtn.innerText = title.replace(".srt", "").replace(".ass", "");
+    let filetitle = title.replace(".srt", "").replace(".ass", "");
+    if(filetitle.length >= 60) {
+        filetitle = filetitle.substring(0, 60) + "...";
+    }
+    titlelinkBtn.innerText = filetitle;
     titlelinkBtn.onclick = function() {
         document.getElementsByClassName("textArea")[index].scrollIntoView(); window.scrollBy(0, -50);}
     document.getElementById("navlist").appendChild(titlelinkBtn);
