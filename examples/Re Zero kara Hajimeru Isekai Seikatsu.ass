@@ -1,0 +1,487 @@
+﻿[Script Info]
+Title: HorribleSubs
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 848
+PlayResY: 480
+WrapStyle: 0
+PlayDepth: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Open Sans Semibold,36,&H00FFFFFF,&H000000FF,&H00020713,&H00000000,-1,0,0,0,100,100,0,0,1,1.7,0,2,0,0,28,0
+Style: Default - italics,Open Sans Semibold,36,&H00FFFFFF,&H000000FF,&H00020713,&H00000000,-1,-1,0,0,100,100,0,0,1,1.7,0,2,0,0,28,0
+Style: Default - flashback,Open Sans Semibold,36,&H00FFFFFF,&H000000FF,&H00020713,&H00000000,-1,0,0,0,100,100,0,0,1,1.7,0,2,0,0,28,0
+Style: Default - margin,Open Sans Semibold,36,&H00FFFFFF,&H000000FF,&H00020713,&H00000000,-1,0,0,0,100,100,0,0,1,1.7,0,2,0,0,28,0
+Style: Episode Title,Open Sans Semibold,36,&H00FAFAFA,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100.0,100.0,0.0,0.0,1,0.0,0.0,2,13,13,333,0
+Style: SignA,Open Sans Semibold,36,&H00696ECC,&H000000FF,&H00060200,&H00000000,-1,0,0,0,100.0,100.0,0.0,0.0,1,2.0,0.0,8,53,53,27,0
+Style: sign_83123_60_A_Moment_in_the_,Open Sans Semibold,35,&H004636AF,&H000000FF,&H32000000,&H32000000,-1,0,0,0,100.0,100.0,0.0,0.0,1,2.0,2.0,3,40,40,133,0
+Style: sign_36406_423_Missing,Open Sans Semibold,36,&H00F8F8F8,&H000000FF,&H00060200,&H004E4E4E,-1,0,0,0,100.0,100.0,0.0,0.0,1,2.0,4.0,8,40,40,27,0
+Style: Mayo,Open Sans Semibold,36,&H00000000,&H000000FF,&H005139C3,&H00000000,-1,0,0,0,100.0,100.0,0.0,0.0,1,2.0,0.0,8,13,13,27,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:06.11,0:00:08.40,Default,Subaru,0,0,0,,Did I just die?
+Dialogue: 0,0:00:11.74,0:00:14.91,Default,Subaru,0,0,0,,Elsa... What was that woman \Ndoing in the mansion?
+Dialogue: 0,0:00:17.59,0:00:19.87,Default,Subaru,0,0,0,,This is... the graveyard?
+Dialogue: 0,0:00:19.87,0:00:22.85,Default,Subaru,0,0,0,,So... right after the trial?
+Dialogue: 0,0:00:22.85,0:00:23.92,Default,Subaru,0,0,0,,Or—
+Dialogue: 0,0:00:24.49,0:00:25.44,Default,Subaru,0,0,0,,Emilia!
+Dialogue: 0,0:00:36.76,0:00:38.16,Default,Emilia,0,0,0,,Subaru?
+Dialogue: 0,0:00:38.16,0:00:40.29,Default,Subaru,0,0,0,,Yeah, that's right. It's me.
+Dialogue: 0,0:00:43.22,0:00:46.18,Default,Emilia,0,0,0,,It wasn't me! It wasn't!
+Dialogue: 0,0:00:44.80,0:00:46.18,Default,Subaru,0,0,0,,I know.
+Dialogue: 0,0:00:46.18,0:00:48.42,Default,Subaru,0,0,0,,It's okay. Everything's okay.
+Dialogue: 0,0:00:50.39,0:00:51.48,Default,Emilia,0,0,0,,Subaru...
+Dialogue: 0,0:01:00.73,0:01:01.82,Default,Emilia,0,0,0,,I'm sorry.
+Dialogue: 0,0:01:02.28,0:01:03.41,Default,Emilia,0,0,0,,I've finally calmed down.
+Dialogue: 0,0:01:03.88,0:01:04.88,Default,Subaru,0,0,0,,Emilia...
+Dialogue: 0,0:01:04.88,0:01:06.67,Default,Ram,0,0,0,,Are you feeling all right?
+Dialogue: 0,0:01:07.76,0:01:10.79,Default,Emilia,0,0,0,,Yes... because Subaru was \Nthere for me, I think.
+Dialogue: 0,0:01:11.52,0:01:14.09,Default,Emilia,0,0,0,,We need to talk about the trial now.
+Dialogue: 0,0:01:15.26,0:01:18.43,Default,Subaru,0,0,0,,Yeah... but I have a pretty \Ngood idea of what it's about.
+Dialogue: 0,0:01:19.76,0:01:22.09,Default,Subaru,0,0,0,,It showed you your past, right?
+Dialogue: 0,0:01:22.96,0:01:23.60,Default,Otto,0,0,0,,Past?
+Dialogue: 0,0:01:24.24,0:01:27.23,Default,Garfiel,0,0,0,,How the hell do you know \Nwhat happens in the trial?
+Dialogue: 0,0:01:27.72,0:01:30.08,Default,Subaru,0,0,0,,You saw the ruins glowing, didn't you?
+Dialogue: 0,0:01:30.08,0:01:31.91,Default,Subaru,0,0,0,,I was qualified to do it, too.
+Dialogue: 0,0:01:32.64,0:01:33.19,Default,Subaru,0,0,0,,And...
+Dialogue: 0,0:01:34.20,0:01:35.08,Default,Subaru,0,0,0,,I passed it.
+Dialogue: 0,0:01:38.16,0:01:40.87,Default,Ryuzu,0,0,0,,Hmm... Young Su passed, eh?
+Dialogue: 0,0:01:41.16,0:01:43.82,Default,Ram,0,0,0,,Assuming he's not joking, \Nthat's quite an achievement.
+Dialogue: 0,0:01:43.82,0:01:45.60,Default,Ram,0,0,0,,If it's true, we can remove the barrier.
+Dialogue: 0,0:01:46.21,0:01:48.20,Default,Ram,0,0,0,,Garf, how does the barrier look now?
+Dialogue: 0,0:01:48.20,0:01:49.29,Default,Garfiel,0,0,0,,No changes.
+Dialogue: 0,0:01:49.52,0:01:51.25,Default,Ram,0,0,0,,So you lied. Drop dead.
+Dialogue: 0,0:01:51.43,0:01:53.59,Default,Subaru,0,0,0,,You reached that conclusion too fast!
+Dialogue: 0,0:01:55.43,0:01:56.71,Default,Subaru,0,0,0,,What's wrong, Garfiel?
+Dialogue: 0,0:01:57.78,0:01:59.84,Default,Garfiel,0,0,0,,Not a damn thing's wrong.
+Dialogue: 0,0:02:01.04,0:02:02.33,Default,Emilia,0,0,0,,Subaru...
+Dialogue: 0,0:02:02.33,0:02:04.68,Default,Emilia,0,0,0,,If that's true, how...
+Dialogue: 0,0:02:04.91,0:02:06.60,Default,Emilia,0,0,0,,What did you see?
+Dialogue: 0,0:02:07.23,0:02:10.52,Default,Subaru,0,0,0,,I wouldn't say I "saw"... \NMore like I "realized."
+Dialogue: 0,0:02:10.94,0:02:14.57,Default,Subaru,0,0,0,,It seems like there's not just \None of these sadistic trials.
+Dialogue: 0,0:02:15.43,0:02:17.40,Default,Subaru,0,0,0,,There are three in total, apparently.
+Dialogue: 0,0:02:18.04,0:02:20.08,Default,Emilia,0,0,0,,So... two more?
+Dialogue: 0,0:02:23.52,0:02:26.56,Default,Subaru,0,0,0,,Emilia, I have a suggestion.
+Dialogue: 0,0:02:27.73,0:02:30.10,Default,Subaru,0,0,0,,You might not like it, though.
+Dialogue: 0,0:02:30.83,0:02:31.81,Default,Emilia,0,0,0,,A suggestion?
+Dialogue: 0,0:02:33.34,0:02:36.09,Default,Subaru,0,0,0,,I could do the remaining trials in your place,
+Dialogue: 0,0:02:36.09,0:02:38.26,Default,Subaru,0,0,0,,and pass them. That's my suggestion.
+Dialogue: 0,0:02:38.60,0:02:40.50,Default,Subaru,0,0,0,,I want to be your strength.
+Dialogue: 0,0:02:40.96,0:02:43.76,Default,Subaru,0,0,0,,I don't know what you saw in your past,
+Dialogue: 0,0:02:44.30,0:02:48.45,Default,Subaru,0,0,0,,but if it made you cry so hard and \Nlook like you were in such pain...
+Dialogue: 0,0:02:49.04,0:02:50.44,Default,Subaru,0,0,0,,I want to lend you a hand.
+Dialogue: 0,0:02:50.44,0:02:51.02,Default,Garfiel,0,0,0,,Hang on!
+Dialogue: 0,0:02:51.02,0:02:55.19,Default,Garfiel,0,0,0,,You've just been sayin' whatever the \Nhell you want while we sit and listen,
+Dialogue: 0,0:02:55.74,0:02:58.08,Default,Garfiel,0,0,0,,but I don't want anyone but the princess,
+Dialogue: 0,0:02:58.08,0:03:01.78,Default,Garfiel,0,0,0,,Emilia-sama, bein' the one \Nto go through the trial.
+Dialogue: 0,0:03:01.78,0:03:07.70,Default,Garfiel,0,0,0,,At the very least, you're the last person \NI wanna see gettin' rid of the barrier!
+Dialogue: 0,0:03:08.70,0:03:12.25,Default - flashback,Garfiel,0,0,0,,You can go through the trial \Nin Emilia-sama's place.
+Dialogue: 0,0:03:12.25,0:03:14.00,Default,Subaru,0,0,0,,Wait, wait, wait!
+Dialogue: 0,0:03:14.00,0:03:17.53,Default,Garfiel,0,0,0,,What? You're surprised that I'm against it?
+Dialogue: 0,0:03:17.53,0:03:19.17,Default,Garfiel,0,0,0,,You're a real dumbass, ya know that?
+Dialogue: 0,0:03:19.17,0:03:20.43,Default,Subaru,0,0,0,,No, I mean, why—
+Dialogue: 0,0:03:20.43,0:03:21.34,Default,Emilia,0,0,0,,Subaru...
+Dialogue: 0,0:03:22.52,0:03:26.06,Default,Emilia,0,0,0,,A-Are you saying you can't \Ntrust me with this?
+Dialogue: 0,0:03:26.38,0:03:26.76,Default,Subaru,0,0,0,,Huh?
+Dialogue: 0,0:03:27.28,0:03:30.04,Default,Emilia,0,0,0,,Because you saw me failing.
+Dialogue: 0,0:03:30.70,0:03:32.29,Default,Emilia,0,0,0,,So you want to do it instead?
+Dialogue: 0,0:03:32.29,0:03:34.68,Default,Subaru,0,0,0,,That's not it! But you shouldn't \Nhave to face your past if—
+Dialogue: 0,0:03:34.68,0:03:38.21,Default,Emilia,0,0,0,,But if I don't face it, \NI'll never get past the trial!
+Dialogue: 0,0:03:38.21,0:03:40.16,Default,Emilia,0,0,0,,If I turn my eyes away\Nfrom things I don't like,
+Dialogue: 0,0:03:40.16,0:03:42.20,Default,Emilia,0,0,0,,leave them all to you, and run away...
+Dialogue: 0,0:03:42.63,0:03:45.66,Default,Emilia,0,0,0,,What would be left for me then?
+Dialogue: 0,0:03:49.52,0:03:50.92,Default,Ram,0,0,0,,Let's stop talking about this.
+Dialogue: 0,0:03:52.92,0:03:54.04,Default,Subaru,0,0,0,,Got a minute?
+Dialogue: 0,0:03:54.55,0:03:58.69,Default,Subaru,0,0,0,,Why were you so opposed to what I suggested?
+Dialogue: 0,0:03:58.69,0:03:59.50,Default,Garfiel,0,0,0,,Because—
+Dialogue: 0,0:03:59.50,0:04:02.07,Default,Ryuzu,0,0,0,,Because it is what Young Ros wants.
+Dialogue: 0,0:04:02.91,0:04:08.47,Default,Ryuzu,0,0,0,,Young Ros believes that Emilia-sama should \Nbe the one to liberate the Sanctuary.
+Dialogue: 0,0:04:08.47,0:04:11.98,Default,Subaru,0,0,0,,And you guys back him on that?
+Dialogue: 0,0:04:11.98,0:04:13.44,Default,Garfiel,0,0,0,,Don't get me wrong!
+Dialogue: 0,0:04:13.44,0:04:16.33,Default,Garfiel,0,0,0,,I hate that son of a bitch as much as you do.
+Dialogue: 0,0:04:16.33,0:04:18.98,Default,Garfiel,0,0,0,,But... you get it, don't you?!
+Dialogue: 0,0:04:19.79,0:04:21.04,Default,Subaru,0,0,0,,I guess...
+Dialogue: 0,0:04:21.04,0:04:24.83,Default,,0,0,0,,even if the barrier disappeared and Sanctuary\N officially became part of his domain...
+Dialogue: 0,0:04:24.83,0:04:27.72,Default,Ryuzu,0,0,0,,This land is overseen by Young Ros.
+Dialogue: 0,0:04:27.72,0:04:30.70,Default,Ryuzu,0,0,0,,No one among us wishes to defy \Nhim and endanger our position.
+Dialogue: 0,0:04:31.00,0:04:33.24,Default,Ryuzu,0,0,0,,I hope you and the others \Nknow that I am sorry.
+Dialogue: 0,0:04:33.66,0:04:37.88,Default,Subaru,0,0,0,,It just keeps getting harder and \Nharder for me to trust Roswaal.
+Dialogue: 0,0:04:38.08,0:04:41.40,Default,Garfiel,0,0,0,,Anyway! It's gotta be the princess \Nwho goes through the trial!
+Dialogue: 0,0:04:41.40,0:04:45.34,Default,Garfiel,0,0,0,,Even if you {\i1}are{\i0} qualified, \NI ain't lettin' you do it!
+Dialogue: 0,0:04:49.14,0:04:51.55,Default,Subaru,0,0,0,,Damn it... Emilia...
+Dialogue: 0,0:04:52.72,0:04:54.54,Default - italics,Subaru,0,0,0,,No, take it easy.
+Dialogue: 0,0:04:54.54,0:04:56.77,Default - italics,Subaru,0,0,0,,I need to figure out what \Nto do about the mansion.
+Dialogue: 0,0:04:57.87,0:05:02.78,Default - italics,Subaru,0,0,0,,There's no way that insane woman won't \Ndo anything to Rem and the new maids.
+Dialogue: 0,0:05:03.44,0:05:05.57,Default - italics,Subaru,0,0,0,,It's Frederica I'm worried about.
+Dialogue: 0,0:05:05.57,0:05:08.24,Default - italics,Subaru,0,0,0,,Does she have ties to Elsa somehow?
+Dialogue: 0,0:05:09.28,0:05:13.45,Default - italics,Subaru,0,0,0,,In any case, I need to get back \Nto the mansion as fast as I can.
+Dialogue: 0,0:05:15.03,0:05:19.17,Default,Roswaal,0,0,0,,And what is it you would like me to do?
+Dialogue: 0,0:05:19.44,0:05:21.76,Default,Subaru,0,0,0,,Get the people of Arlam Village back home.
+Dialogue: 0,0:05:22.28,0:05:25.73,Default,Subaru,0,0,0,,I want you to bring up that suggestion \Nto Ryuzu-san and the rest.
+Dialogue: 0,0:05:26.45,0:05:31.11,Default,Subaru,0,0,0,,It doesn't look like I'll be able to \Nget them to agree with me this time.
+Dialogue: 0,0:05:31.78,0:05:32.80,Default,Roswaal,0,0,0,,"This time"?
+Dialogue: 0,0:05:33.92,0:05:35.85,Default,Roswaal,0,0,0,,Hmm... And why is that?
+Dialogue: 0,0:05:36.05,0:05:39.86,Default,Subaru,0,0,0,,That Garfiel punk seems to hate my guts.
+Dialogue: 0,0:05:40.26,0:05:43.13,Default,Subaru,0,0,0,,I don't have time to convince \Nsomeone as volatile as him.
+Dialogue: 0,0:05:43.97,0:05:45.57,Default,Subaru,0,0,0,,And there's one other thing.
+Dialogue: 0,0:05:46.06,0:05:48.20,Default,Subaru,0,0,0,,I want to go and tell the \Npeople who're still in Arlam
+Dialogue: 0,0:05:48.20,0:05:50.03,Default,Subaru,0,0,0,,that their families are safe.
+Dialogue: 0,0:05:50.56,0:05:52.79,Default,Subaru,0,0,0,,I'm going back there alone to tell them that.
+Dialogue: 0,0:05:53.43,0:05:57.50,Default,Subaru,0,0,0,,Of course, I'm also going to the mansion, \Nwhere Frederica's planning something.
+Dialogue: 0,0:05:57.50,0:05:59.78,Default,Roswaal,0,0,0,,Ram has informed me of this.
+Dialogue: 0,0:06:00.16,0:06:03.04,Default,Roswaal,0,0,0,,But given what I know about her, \NFrederica would not be hasty in—
+Dialogue: 0,0:06:03.04,0:06:04.46,Default,Subaru,0,0,0,,And what do you know?
+Dialogue: 0,0:06:04.81,0:06:07.48,Default,Subaru,0,0,0,,Frederica gave Emilia the glowing stone.
+Dialogue: 0,0:06:07.48,0:06:09.68,Default,Subaru,0,0,0,,That's proof she's planning something!
+Dialogue: 0,0:06:12.93,0:06:16.31,Default,Roswaal,0,0,0,,And if she does prove to be \Nan enemy, what will you do?
+Dialogue: 0,0:06:16.94,0:06:20.13,Default,Roswaal,0,0,0,,I'm sorry to say so, but you \Nstand no chance against her.
+Dialogue: 0,0:06:21.15,0:06:24.99,Default,Subaru,0,0,0,,Emilia's dealing with \Nthe barrier, you're injured,
+Dialogue: 0,0:06:24.99,0:06:26.82,Default,Subaru,0,0,0,,and Otto won't have any part in all this.
+Dialogue: 0,0:06:27.13,0:06:28.08,Default,Subaru,0,0,0,,We're stuck.
+Dialogue: 0,0:06:28.08,0:06:31.05,Default,Roswaal,0,0,0,,That is true, with the exception of one person.
+Dialogue: 0,0:06:32.40,0:06:34.49,Default,Ram,0,0,0,,If I may be blunt, I don't like this.
+Dialogue: 0,0:06:34.49,0:06:37.61,Default,Subaru,0,0,0,,You're still talking like that, Nee-sama?
+Dialogue: 0,0:06:37.61,0:06:40.36,Default,Ram,0,0,0,,With Roswaal-sama in his current condition,
+Dialogue: 0,0:06:40.36,0:06:42.67,Default,Ram,0,0,0,,I don't like the idea of leaving his side.
+Dialogue: 0,0:06:42.92,0:06:46.37,Default,Subaru,0,0,0,,Yeah, but it's not like you can \Ndo anything for him, right?
+Dialogue: 0,0:06:46.37,0:06:49.68,Default,Subaru,0,0,0,,I couldn't believe it when I heard that \NGarfiel put those bandages on him.
+Dialogue: 0,0:06:49.92,0:06:51.34,Default,Ram,0,0,0,,Don't be a fool.
+Dialogue: 0,0:06:51.34,0:06:54.43,Default,Ram,0,0,0,,What if I had put them on him and \Nonly made his injuries worse?
+Dialogue: 0,0:06:54.72,0:06:56.12,Default,Subaru,0,0,0,,Show a little guilt, would you?!
+Dialogue: 0,0:06:56.12,0:06:59.77,Default,Garfiel,0,0,0,,Makin' your triumphant return \Nwith a pretty girl on each arm?
+Dialogue: 0,0:06:59.77,0:07:01.85,Default,Garfiel,0,0,0,,You've really got some nerve, you know that?
+Dialogue: 0,0:07:02.21,0:07:05.84,Default,Subaru,0,0,0,,I didn't expect you to come out so \Nearly in the morning to see me off.
+Dialogue: 0,0:07:05.84,0:07:06.73,Default,Subaru,0,0,0,,So you heard?
+Dialogue: 0,0:07:07.05,0:07:11.67,Default,Garfiel,0,0,0,,Frankly, it pisses me off that \Nthis was all decided without me,
+Dialogue: 0,0:07:11.67,0:07:13.03,Default,Garfiel,0,0,0,,but I ain't gonna fight it.
+Dialogue: 0,0:07:13.46,0:07:16.16,Default,Subaru,0,0,0,,Really? That's good to know.
+Dialogue: 0,0:07:16.16,0:07:17.84,Default,Subaru,0,0,0,,If you'd tried to stop me,
+Dialogue: 0,0:07:17.84,0:07:20.78,Default,Subaru,0,0,0,,I would've had to throw Ram off \Ninto the distance as a decoy.
+Dialogue: 0,0:07:20.78,0:07:22.70,Default,Garfiel,0,0,0,,Like that would even work!
+Dialogue: 0,0:07:23.24,0:07:23.95,Default,Garfiel,0,0,0,,Would it?
+Dialogue: 0,0:07:23.95,0:07:24.96,Default,Subaru,0,0,0,,How would I know?!
+Dialogue: 0,0:07:25.21,0:07:26.92,Default,Subaru,0,0,0,,You should say something to...
+Dialogue: 0,0:07:29.13,0:07:30.63,Default,Subaru,0,0,0,,Ram? What's wrong?
+Dialogue: 0,0:07:31.01,0:07:33.54,Default,Ram,0,0,0,,This stupid conversation gave \Nme a headache, that's all.
+Dialogue: 0,0:07:35.56,0:07:36.89,Default,Subaru,0,0,0,,Well, I'm outta here.
+Dialogue: 0,0:07:37.42,0:07:40.63,Default,Subaru,0,0,0,,I should be back tomorrow, \Nso look after things until then.
+Dialogue: 0,0:07:40.63,0:07:43.40,Default,Garfiel,0,0,0,,You're not gonna say goodbye to the princess?
+Dialogue: 0,0:07:43.68,0:07:47.12,Default,Subaru,0,0,0,,I'm surprised you're actually \Nworried about Emilia.
+Dialogue: 0,0:07:47.12,0:07:50.14,Default,Subaru,0,0,0,,But it's fine. I left her a letter.
+Dialogue: 0,0:07:53.16,0:07:55.74,Default,Subaru,0,0,0,,By the way, don't you have \Nanything to give me?
+Dialogue: 0,0:07:56.26,0:07:57.99,Default,Garfiel,0,0,0,,Huh? The hell are you talkin' about?
+Dialogue: 0,0:07:59.89,0:08:02.37,Default,Ram,0,0,0,,Then are you going to show \Nsome concern for me?
+Dialogue: 0,0:08:02.83,0:08:05.44,Default,Ram,0,0,0,,The woman you love is leaving \Nto fulfill her duty.
+Dialogue: 0,0:08:05.44,0:08:07.50,Default,Ram,0,0,0,,Have you no desire to offer \Nher some assistance?
+Dialogue: 0,0:08:08.52,0:08:12.22,Default,Garfiel,0,0,0,,You're only nice when you'll get \Nsomethin' out of it, aren't ya?
+Dialogue: 0,0:08:12.67,0:08:13.85,Default,Garfiel,0,0,0,,There!
+Dialogue: 0,0:08:15.45,0:08:16.87,Default,Subaru,0,0,0,,Take care of Emilia.
+Dialogue: 0,0:08:16.87,0:08:20.70,Default,Subaru,0,0,0,,Do the best you can to let her know I'm \Nsorry from the bottom of my heart!
+Dialogue: 0,0:08:20.70,0:08:24.10,Default,Garfiel,0,0,0,,Tell her that yourself, damn it!
+Dialogue: 0,0:08:26.84,0:08:28.02,Default,Ram,0,0,0,,So, Barusu...
+Dialogue: 0,0:08:28.39,0:08:30.73,Default,Ram,0,0,0,,Will this thing Garf gave us be of some use?
+Dialogue: 0,0:08:31.04,0:08:32.18,Default,Subaru,0,0,0,,I don't know.
+Dialogue: 0,0:08:32.18,0:08:35.28,Default,Subaru,0,0,0,,What do you think? You've known\N him longer than I have.
+Dialogue: 0,0:08:35.28,0:08:36.99,Default,Ram,0,0,0,,Actually, I have no idea.
+Dialogue: 0,0:08:37.41,0:08:39.47,Default,Ram,0,0,0,,Since it's part of a matching pair,
+Dialogue: 0,0:08:39.47,0:08:41.14,Default,Ram,0,0,0,,I'm sure it means something to him.
+Dialogue: 0,0:08:44.81,0:08:47.46,Default,Subaru,0,0,0,,You've looked pretty unhappy today.
+Dialogue: 0,0:08:48.84,0:08:50.05,Default,Ram,0,0,0,,What you said earlier...
+Dialogue: 0,0:08:51.17,0:08:54.01,Default,Ram,0,0,0,,When you said you would throw me as a decoy.
+Dialogue: 0,0:08:54.28,0:08:57.50,Default,Ram,0,0,0,,For some reason, that bothered \Nme more than I expected.
+Dialogue: 0,0:08:58.00,0:08:58.78,Default,Ram,0,0,0,,Almost as if...
+Dialogue: 0,0:09:00.08,0:09:02.59,Default,Ram,0,0,0,,something like that has really happened before.
+Dialogue: 0,0:09:11.36,0:09:12.16,Default,Ram,0,0,0,,Barusu?
+Dialogue: 0,0:09:13.05,0:09:15.98,Default,Subaru,0,0,0,,Ram, there's something important \NI need to tell you.
+Dialogue: 0,0:09:16.87,0:09:19.82,Default,Subaru,0,0,0,,The most important thing in the world to you.
+Dialogue: 0,0:09:21.07,0:09:24.25,Default,Ram,0,0,0,,The only thing that important \Nto me is Roswaal-sama.
+Dialogue: 0,0:09:24.25,0:09:25.78,Default,Subaru,0,0,0,,No, there's something else.
+Dialogue: 0,0:09:27.00,0:09:29.75,Default,Subaru,0,0,0,,So I'm going to tell you about it.
+Dialogue: 0,0:09:32.30,0:09:34.48,Default,Subaru,0,0,0,,There's a girl named Rem...
+Dialogue: 0,0:09:41.72,0:09:44.04,Default - italics,Subaru,0,0,0,,Please don't let anything be happening.
+Dialogue: 0,0:09:44.48,0:09:46.56,Default - italics,Subaru,0,0,0,,I'm here two days earlier than last time.
+Dialogue: 0,0:09:47.04,0:09:48.40,Default - italics,Subaru,0,0,0,,If it still goes wrong,
+Dialogue: 0,0:09:48.40,0:09:52.63,Default - italics,Subaru,0,0,0,,I'll have to take off on Patrasche \Nthe moment I wake up in the graveyard.
+Dialogue: 0,0:09:53.26,0:09:55.78,Default - italics,Subaru,0,0,0,,If Frederica turns out to be an enemy,
+Dialogue: 0,0:09:55.78,0:09:58.53,Default - italics,Subaru,0,0,0,,it's crucial to know when \Nshe's going to take action.
+Dialogue: 0,0:09:58.53,0:09:58.96,Default,Ram,0,0,0,,Barusu?
+Dialogue: 0,0:09:58.96,0:10:00.60,Default - italics,Subaru,0,0,0,,Should I attack or run?
+Dialogue: 0,0:10:01.08,0:10:04.57,Default - italics,Subaru,0,0,0,,If it's Elsa I'm dealing with, \Nit'd be wise to turn tail and run.
+Dialogue: 0,0:10:04.57,0:10:05.64,Default - italics,Subaru,0,0,0,,Which means...
+Dialogue: 0,0:10:05.64,0:10:06.62,Default,Ram,0,0,0,,Barusu!
+Dialogue: 0,0:10:06.86,0:10:10.29,Default,Subaru,0,0,0,,What? I was thinking about—
+Dialogue: 0,0:10:12.18,0:10:14.60,Default,Petra,0,0,0,,Welcome back, Subaru-sama.
+Dialogue: 0,0:10:15.13,0:10:18.01,Default,Petra,0,0,0,,You returned much sooner than I expected.
+Dialogue: 0,0:10:21.36,0:10:23.16,Default,Petra,0,0,0,,Is something wrong, Subaru-sama?
+Dialogue: 0,0:10:23.75,0:10:27.52,Default,Subaru,0,0,0,,Oh, God! You're just so cute!
+Dialogue: 0,0:10:27.72,0:10:29.68,Default,Petra,0,0,0,,What, what?! What is this?! Subaru!
+Dialogue: 0,0:10:29.68,0:10:33.54,Default,Subaru,0,0,0,,Damn! You have no idea what I've been through!
+Dialogue: 0,0:10:34.32,0:10:36.31,Default,Subaru,0,0,0,,Seriously... Damn it...
+Dialogue: 0,0:10:39.22,0:10:40.12,Default,Subaru,0,0,0,,Is that...
+Dialogue: 0,0:10:40.12,0:10:42.50,Default,Petra,0,0,0,,Oh... It's to match the one I gave you.
+Dialogue: 0,0:10:49.44,0:10:50.92,Default,Petra,0,0,0,,Are you hurt?
+Dialogue: 0,0:10:54.22,0:10:55.00,Default,Subaru,0,0,0,,No.
+Dialogue: 0,0:10:55.86,0:10:59.01,Default,Subaru,0,0,0,,I'm just incredibly relieved, \Nfrom the bottom of my heart.
+Dialogue: 0,0:11:00.48,0:11:02.47,Default,Subaru,0,0,0,,It's good to be back, Petra.
+Dialogue: 0,0:11:02.96,0:11:05.10,Default,Ram,0,0,0,,If I may be blunt, I don't like this.
+Dialogue: 0,0:11:05.10,0:11:07.14,Default,Subaru,0,0,0,,I feel like I've heard that before...
+Dialogue: 0,0:11:07.14,0:11:08.62,Default,Ram,0,0,0,,Yes, because it was sarcasm.
+Dialogue: 0,0:11:08.99,0:11:12.75,Default,Ram,0,0,0,,The cute sarcasm of a Ram who has \Nbeen forgotten and left at a loss.
+Dialogue: 0,0:11:13.39,0:11:16.22,Default,Petra,0,0,0,,Um, you're Ram-neesama, right?
+Dialogue: 0,0:11:17.23,0:11:20.99,Default,Petra,0,0,0,,I was just hired as a new maid in \Nservice to the lord of the mansion.
+Dialogue: 0,0:11:20.99,0:11:22.03,Default,Petra,0,0,0,,I'm Petra.
+Dialogue: 0,0:11:22.51,0:11:24.12,Default,Petra,0,0,0,,It's a pleasure to meet you.
+Dialogue: 0,0:11:25.57,0:11:28.21,Default,Ram,0,0,0,,You seem to know your place, unlike Barusu.
+Dialogue: 0,0:11:28.21,0:11:30.08,Default,Ram,0,0,0,,Very good. I give you a passing grade.
+Dialogue: 0,0:11:30.72,0:11:32.62,Default,Ram,0,0,0,,By the way, Barusu, you fail.
+Dialogue: 0,0:11:32.62,0:11:34.73,Default,Ram,0,0,0,,I won't allow you to cross \Nthis mansion's threshold.
+Dialogue: 0,0:11:34.73,0:11:37.09,Default,Subaru,0,0,0,,What was the point of coming back, then?!
+Dialogue: 0,0:11:38.81,0:11:43.13,Default,Subaru,0,0,0,,Hey, Petra... has anything weird \Nhappened while we were away?
+Dialogue: 0,0:11:43.13,0:11:44.51,Default,Subaru,0,0,0,,Like, with Frederica?
+Dialogue: 0,0:11:44.51,0:11:46.20,Default,Petra,0,0,0,,Frederica-neesama?
+Dialogue: 0,0:11:46.64,0:11:48.47,Default,Petra,0,0,0,,There's nothing weird about her at all.
+Dialogue: 0,0:11:48.66,0:11:50.20,Default,Subaru,0,0,0,,Is she inside right now?
+Dialogue: 0,0:11:50.20,0:11:52.49,Default,Petra,0,0,0,,She's out patrolling the forest barrier.
+Dialogue: 0,0:11:52.49,0:11:54.70,Default,Petra,0,0,0,,It may be a while before she gets back.
+Dialogue: 0,0:11:54.70,0:11:56.80,Default,Ram,0,0,0,,I'm not sure if our timing is good or bad.
+Dialogue: 0,0:11:56.80,0:11:58.48,Default,Ram,0,0,0,,What should we do, Barusu?
+Dialogue: 0,0:12:00.01,0:12:01.72,Default,Subaru,0,0,0,,I want to see what she's going to do.
+Dialogue: 0,0:12:01.72,0:12:03.11,Default,Subaru,0,0,0,,We'll wait with Rem in the meantime.
+Dialogue: 0,0:12:11.88,0:12:14.38,Default,Petra,0,0,0,,I'm going to get back to cleaning.
+Dialogue: 0,0:12:14.38,0:12:16.26,Default,Petra,0,0,0,,If you need anything, please call for me.
+Dialogue: 0,0:12:20.35,0:12:21.89,Default,Subaru,0,0,0,,You're nervous, huh?
+Dialogue: 0,0:12:21.89,0:12:23.15,Default,Ram,0,0,0,,I am not.
+Dialogue: 0,0:12:23.15,0:12:25.10,Default,Subaru,0,0,0,,Well, you should be.
+Dialogue: 0,0:12:25.10,0:12:28.10,Default,Subaru,0,0,0,,It's the right reaction. I want you to be.
+Dialogue: 0,0:12:34.52,0:12:36.14,Default,Subaru,0,0,0,,I'm so glad you're all right.
+Dialogue: 0,0:12:42.95,0:12:43.77,Default,Ram,0,0,0,,Barusu...
+Dialogue: 0,0:12:44.53,0:12:45.25,Default,Subaru,0,0,0,,What?
+Dialogue: 0,0:12:45.72,0:12:47.78,Default,Ram,0,0,0,,Could you leave us alone for a bit?
+Dialogue: 0,0:13:00.12,0:13:01.34,Default,Subaru,0,0,0,,It's a start...
+Dialogue: 0,0:13:02.18,0:13:03.68,Default,Subaru,0,0,0,,It's a start.
+Dialogue: 0,0:13:03.68,0:13:06.68,Default,Frederica,0,0,0,,You returned sooner than \NI expected, Subaru-sama.
+Dialogue: 0,0:13:07.92,0:13:09.64,Default,Frederica,0,0,0,,What a surprise.
+Dialogue: 0,0:13:13.76,0:13:16.98,Default,Frederica,0,0,0,,Since Emilia-sama is not with you,
+Dialogue: 0,0:13:16.98,0:13:19.33,Default,Frederica,0,0,0,,I assume the trial is not yet complete?
+Dialogue: 0,0:13:20.00,0:13:20.74,Default,Subaru,0,0,0,,Yeah.
+Dialogue: 0,0:13:21.28,0:13:24.07,Default,Subaru,0,0,0,,There are some things I want to ask you.
+Dialogue: 0,0:13:24.07,0:13:25.65,Default,Subaru,0,0,0,,First, about this.
+Dialogue: 0,0:13:29.99,0:13:30.87,Default,Frederica,0,0,0,,That is...
+Dialogue: 0,0:13:35.56,0:13:38.24,Default,Frederica,0,0,0,,Garf's stone.
+Dialogue: 0,0:13:38.24,0:13:40.40,Default,Subaru,0,0,0,,Yeah. So you really do know him...
+Dialogue: 0,0:13:40.40,0:13:42.76,Default,,0,0,0,,I mean, you really are related?
+Dialogue: 0,0:13:42.76,0:13:45.51,Default,Frederica,0,0,0,,Garf did not tell you so himself?
+Dialogue: 0,0:13:45.51,0:13:47.50,Default,Subaru,0,0,0,,It's easy enough to guess from your faces.
+Dialogue: 0,0:13:47.88,0:13:50.35,Default,Subaru,0,0,0,,And I imagine you're the older sibling.
+Dialogue: 0,0:13:51.52,0:13:52.86,Default,Frederica,0,0,0,,You are correct.
+Dialogue: 0,0:13:54.50,0:13:56.18,Default,Frederica,0,0,0,,I am Garf's...
+Dialogue: 0,0:13:57.19,0:14:00.69,Default,Frederica,0,0,0,,Garfiel's older sister by blood.
+Dialogue: 0,0:14:03.66,0:14:05.03,Default,Subaru,0,0,0,,Answer me something.
+Dialogue: 0,0:14:05.03,0:14:07.48,Default,,0,0,0,,Why did you use the glowing stone
+Dialogue: 0,0:14:07.48,0:14:08.91,Default,Subaru,0,0,0,,to set a teleport trap?
+Dialogue: 0,0:14:11.60,0:14:14.02,Default,Subaru,0,0,0,,Can't tell me that because \Nof your oath, either?
+Dialogue: 0,0:14:14.57,0:14:16.04,Default,Subaru,0,0,0,,Well, this is one thing you need to—
+Dialogue: 0,0:14:16.04,0:14:17.26,Default,Frederica,0,0,0,,Subaru-sama...
+Dialogue: 0,0:14:17.78,0:14:19.96,Default,Frederica,0,0,0,,What do you mean by "teleport"?
+Dialogue: 0,0:14:22.32,0:14:24.60,Default,Frederica,0,0,0,,I-I do not know how to respond to that look.
+Dialogue: 0,0:14:24.60,0:14:26.42,Default,Subaru,0,0,0,,Wait! Wait, wait!
+Dialogue: 0,0:14:26.42,0:14:27.58,Default,Subaru,0,0,0,,You won't fool me!
+Dialogue: 0,0:14:27.58,0:14:31.51,Default,Subaru,0,0,0,,I know you're working with the conservatives \Nwho don't want the Sanctuary to be freed!
+Dialogue: 0,0:14:31.51,0:14:34.22,Default,Frederica,0,0,0,,Conservatives? I do not know what you mean.
+Dialogue: 0,0:14:34.76,0:14:37.18,Default,Frederica,0,0,0,,You will need to explain everything \Nfrom the beginning...
+Dialogue: 0,0:14:37.38,0:14:40.86,Default,Subaru,0,0,0,,Y-You're really not acting or signaling?
+Dialogue: 0,0:14:40.86,0:14:43.32,Default,Ram,0,0,0,,Having one-on-one time with \NFrederica in my absence?
+Dialogue: 0,0:14:43.84,0:14:46.22,Default,Ram,0,0,0,,It would seem you have no \Nneed for your life, Barusu.
+Dialogue: 0,0:14:47.02,0:14:48.49,Default,Subaru,0,0,0,,Uh, no, I was...
+Dialogue: 0,0:14:52.64,0:14:56.45,Default,Ram,0,0,0,,Your skill at making tea hasn't \Nimproved since we left, I see.
+Dialogue: 0,0:14:56.76,0:15:00.38,Default,Frederica,0,0,0,,Oh... but making tea is \Nthe one thing I excel at.
+Dialogue: 0,0:15:00.38,0:15:01.83,Default,Frederica,0,0,0,,What an unlovable girl you are.
+Dialogue: 0,0:15:02.15,0:15:04.10,Default,Ram,0,0,0,,I'm perfectly lovable.
+Dialogue: 0,0:15:04.49,0:15:06.56,Default,Ram,0,0,0,,If I were more lovable, \Nthe world would be in danger.
+Dialogue: 0,0:15:06.56,0:15:09.32,Default,Frederica,0,0,0,,You always have a sharp retort ready.
+Dialogue: 0,0:15:09.32,0:15:10.05,Default,Frederica,0,0,0,,Honestly...
+Dialogue: 0,0:15:10.63,0:15:12.29,Default,Frederica,0,0,0,,How very like you.
+Dialogue: 0,0:15:12.29,0:15:13.14,Default,Ram,0,0,0,,And?
+Dialogue: 0,0:15:13.84,0:15:17.69,Default,Ram,0,0,0,,If you don't know about the teleporting, \Nwhy did you give Barusu the glowing stone?
+Dialogue: 0,0:15:17.69,0:15:18.87,Default,Frederica,0,0,0,,Well...
+Dialogue: 0,0:15:18.87,0:15:21.48,Default,Ram,0,0,0,,You can't tell us because of your oath?
+Dialogue: 0,0:15:21.78,0:15:24.19,Default,Ram,0,0,0,,If so, that's a pathetic excuse, Frederica.
+Dialogue: 0,0:15:25.76,0:15:27.40,Default,Frederica,0,0,0,,You are right.
+Dialogue: 0,0:15:27.40,0:15:30.03,Default,Frederica,0,0,0,,I cannot tell you anything.
+Dialogue: 0,0:15:30.39,0:15:32.08,Default,Ram,0,0,0,,Sticking to your pathetic excuse, I see.
+Dialogue: 0,0:15:32.08,0:15:34.18,Default,Ram,0,0,0,,Then there's nothing more to discuss.
+Dialogue: 0,0:15:34.18,0:15:35.46,Default,Subaru,0,0,0,,Hey, take it easy!
+Dialogue: 0,0:15:35.46,0:15:38.50,Default,Ram,0,0,0,,Your refusal to answer the question \Nmakes your betrayal clear.
+Dialogue: 0,0:15:38.82,0:15:41.46,Default,Ram,0,0,0,,We will restrain you and \Ntake you to the Sanctuary.
+Dialogue: 0,0:15:42.12,0:15:45.96,Default,Ram,0,0,0,,Then we can figure out who's \Nbeen giving you your orders.
+Dialogue: 0,0:15:45.96,0:15:47.36,Default,Subaru,0,0,0,,Yeah, but...
+Dialogue: 0,0:15:47.36,0:15:51.00,Default,Frederica,0,0,0,,If you insist on taking me to the \NSanctuary, I will not resist.
+Dialogue: 0,0:15:51.00,0:15:53.05,Default,Subaru,0,0,0,,There, see? Even Frederica's—
+Dialogue: 0,0:15:53.57,0:15:54.43,Default,Subaru,0,0,0,,Wait, what?
+Dialogue: 0,0:15:54.43,0:15:57.39,Default,Frederica,0,0,0,,I said that I will not resist.
+Dialogue: 0,0:15:57.39,0:15:59.14,Default,Subaru,0,0,0,,You... won't?
+Dialogue: 0,0:15:59.69,0:16:00.43,Default,Subaru,0,0,0,,Why?!
+Dialogue: 0,0:16:00.43,0:16:02.20,Default,Ram,0,0,0,,You're awfully slow on the uptake.
+Dialogue: 0,0:16:02.20,0:16:05.64,Default,Ram,0,0,0,,Frederica can't break her \Noath of her own free will,
+Dialogue: 0,0:16:05.64,0:16:08.36,Default,Ram,0,0,0,,so you'll have to use force \Nto make her, Barusu.
+Dialogue: 0,0:16:09.36,0:16:11.39,Default,Ram,0,0,0,,That's the kind of excuse she needs.
+Dialogue: 0,0:16:14.41,0:16:16.72,Default,Subaru,0,0,0,,You guys are in perfect sync.
+Dialogue: 0,0:16:16.72,0:16:18.01,Default,Frederica,0,0,0,,Naturally.
+Dialogue: 0,0:16:18.01,0:16:19.91,Default,Ram,0,0,0,,We've known each other for nearly ten years.
+Dialogue: 0,0:16:20.97,0:16:23.84,Default,Subaru,0,0,0,,If that's all it's gonna take,\N frankly, I'm relieved.
+Dialogue: 0,0:16:23.84,0:16:25.92,Default,Subaru,0,0,0,,I want to get out of here as soon as—
+Dialogue: 0,0:16:25.48,0:16:25.92,Default,Elsa,0,0,0,,Oh, dear.
+Dialogue: 0,0:16:26.57,0:16:29.70,Default,Elsa,0,0,0,,I wish you wouldn't say such unfriendly things.
+Dialogue: 0,0:16:39.36,0:16:42.48,Default,Elsa,0,0,0,,Now, let's keep that promise we made.
+Dialogue: 0,0:16:43.08,0:16:44.16,Default,Petra,0,0,0,,Nee-sama...
+Dialogue: 0,0:16:44.16,0:16:45.20,Default,Petra,0,0,0,,Subaru...
+Dialogue: 0,0:16:47.45,0:16:48.94,Default,Petra,0,0,0,,Run!
+Dialogue: 0,0:16:48.94,0:16:50.19,Default,Ram,0,0,0,,El Fula!
+Dialogue: 0,0:16:53.70,0:16:56.32,Default,Elsa,0,0,0,,Partial beast transformation...\NYou have demihuman blood. How lovely.
+Dialogue: 0,0:16:56.51,0:16:57.30,Default,Frederica,0,0,0,,Petra!
+Dialogue: 0,0:16:58.20,0:16:59.66,Default,Ram,0,0,0,,I'll shred you!
+Dialogue: 0,0:17:03.33,0:17:04.00,Default,Ram,0,0,0,,Her arm...
+Dialogue: 0,0:17:04.36,0:17:06.42,Default,Elsa,0,0,0,,Goodness, that hurt.
+Dialogue: 0,0:17:08.64,0:17:10.21,Default,Elsa,0,0,0,,I thought I was a goner.
+Dialogue: 0,0:17:11.11,0:17:12.54,Default,Elsa,0,0,0,,I like it.
+Dialogue: 0,0:17:12.54,0:17:15.72,Default,Elsa,0,0,0,,Maids in large, medium, and small, and one boy.
+Dialogue: 0,0:17:16.45,0:17:19.88,Default,Elsa,0,0,0,,I'll put you all on a table and \Ncompare what's inside your bellies.
+Dialogue: 0,0:17:19.88,0:17:22.06,Default,Ram,0,0,0,,Even Garf's pick-up lines are better!
+Dialogue: 0,0:17:22.06,0:17:22.71,Default,Ram,0,0,0,,Barusu!
+Dialogue: 0,0:17:22.71,0:17:23.68,Default,Subaru,0,0,0,,I know!
+Dialogue: 0,0:17:23.92,0:17:25.60,Default,Subaru,0,0,0,,Shamac!
+Dialogue: 0,0:17:31.55,0:17:32.78,Default,Ram,0,0,0,,We're leaving!
+Dialogue: 0,0:17:33.35,0:17:34.15,Default,Petra,0,0,0,,Subaru!
+Dialogue: 0,0:17:34.15,0:17:35.53,Default,Subaru,0,0,0,,Frederica!
+Dialogue: 0,0:17:37.45,0:17:38.64,Default,Ram,0,0,0,,Ul Fula!
+Dialogue: 0,0:17:45.49,0:17:46.91,Default,Petra,0,0,0,,Frederica-neesama!
+Dialogue: 0,0:17:47.85,0:17:49.83,Default,Frederica,0,0,0,,I underestimated our opponent.
+Dialogue: 0,0:17:50.14,0:17:51.32,Default,Subaru,0,0,0,,Ow...
+Dialogue: 0,0:17:51.73,0:17:54.16,Default,Subaru,0,0,0,,Damn it... Did we get her?
+Dialogue: 0,0:17:54.16,0:17:57.30,Default,Ram,0,0,0,,It didn't feel like it. Who was she?
+Dialogue: 0,0:17:58.00,0:18:00.33,Default,Subaru,0,0,0,,Rem... Beatrice...
+Dialogue: 0,0:18:02.56,0:18:04.05,Default,Subaru,0,0,0,,We have to save them.
+Dialogue: 0,0:18:04.89,0:18:05.96,Default,Ram,0,0,0,,We leave them here.
+Dialogue: 0,0:18:07.11,0:18:09.65,Default,Ram,0,0,0,,The four of us will escape \Nand leave them here.
+Dialogue: 0,0:18:10.25,0:18:12.01,Default,Ram,0,0,0,,That's the best option right now.
+Dialogue: 0,0:18:13.04,0:18:14.72,Default,Subaru,0,0,0,,What... did you...
+Dialogue: 0,0:18:15.55,0:18:17.49,Default,Subaru,0,0,0,,What the hell are you saying?!
+Dialogue: 0,0:18:17.49,0:18:19.65,Default,Ram,0,0,0,,What good will yelling do? Calm yourself.
+Dialogue: 0,0:18:19.65,0:18:22.40,Default,Subaru,0,0,0,,That's Rem inside the mansion! Your sister!
+Dialogue: 0,0:18:22.40,0:18:26.40,Default,Subaru,0,0,0,,You love her, and she loves you!\NYou have to protect your little sister!
+Dialogue: 0,0:18:26.40,0:18:28.24,Default,Ram,0,0,0,,I only made the appropriate judgment.
+Dialogue: 0,0:18:28.24,0:18:33.44,Default,Ram,0,0,0,,Losing you along with Frederica and me \Nwould be a far greater loss for our side.
+Dialogue: 0,0:18:33.44,0:18:35.03,Default,Ram,0,0,0,,Sacrifices must be made.
+Dialogue: 0,0:18:35.03,0:18:36.65,Default,Subaru,0,0,0,,You're talking about sacrificing—
+Dialogue: 0,0:18:36.65,0:18:39.05,Default,Ram,0,0,0,,Yes, she may be my younger sister.
+Dialogue: 0,0:18:39.60,0:18:43.51,Default,Ram,0,0,0,,I sensed that the same blood \Nflows in her as in me.
+Dialogue: 0,0:18:43.83,0:18:47.98,Default,Ram,0,0,0,,But her existence itself is a blank.
+Dialogue: 0,0:18:48.36,0:18:51.51,Default,Ram,0,0,0,,Still, if she is my sister, \Nthis is what she would say:
+Dialogue: 0,0:18:53.04,0:18:57.25,Default,Ram,0,0,0,,"Please sacrifice me to save Roswaal-sama."
+Dialogue: 0,0:18:59.47,0:19:03.68,Default,Subaru,0,0,0,,I... didn't bring you here \Nto make you say that.
+Dialogue: 0,0:19:03.68,0:19:07.37,Default,Frederica,0,0,0,,I believe we should save the two of them.
+Dialogue: 0,0:19:07.76,0:19:13.25,Default,Frederica,0,0,0,,Both Beatrice-sama and Rem \Nare also vital to our side.
+Dialogue: 0,0:19:13.25,0:19:17.38,Default,Petra,0,0,0,,M-Me, too! I think we should save them, too!
+Dialogue: 0,0:19:17.38,0:19:18.81,Default,Petra,0,0,0,,I agree with her!
+Dialogue: 0,0:19:18.81,0:19:20.86,Default,Ram,0,0,0,,We're not taking a majority vote.
+Dialogue: 0,0:19:20.86,0:19:22.18,Default,Ram,0,0,0,,Be quiet, child.
+Dialogue: 0,0:19:22.18,0:19:24.79,Default,Petra,0,0,0,,I-I may be a child, but I'm plenty grown-up!
+Dialogue: 0,0:19:24.79,0:19:28.12,Default,Petra,0,0,0,,Frederica-neesama even said \NI'm more useful than you!
+Dialogue: 0,0:19:28.60,0:19:31.10,Default,Ram,0,0,0,,Frederica, what did you say to her?
+Dialogue: 0,0:19:31.10,0:19:35.18,Default,Frederica,0,0,0,,Since it was my idea, I will assume \Nthe task of stopping the enemy.
+Dialogue: 0,0:19:39.03,0:19:42.36,Default,Ram,0,0,0,,So you're deliberately choosing \Nto draw the short straw again.
+Dialogue: 0,0:19:42.36,0:19:43.80,Default,Ram,0,0,0,,You're just like Garf.
+Dialogue: 0,0:19:43.80,0:19:47.05,Default,Frederica,0,0,0,,You girls are my precious junior colleagues.
+Dialogue: 0,0:19:47.05,0:19:49.83,Default,Frederica,0,0,0,,Also, it is incorrect to \Nsay I am "just like Garf."
+Dialogue: 0,0:19:50.22,0:19:52.71,Default,Frederica,0,0,0,,Garf is the one who imitates me.
+Dialogue: 0,0:20:05.15,0:20:07.01,Default,Subaru,0,0,0,,So this is a beast transformation?
+Dialogue: 0,0:20:13.91,0:20:16.61,Default,Frederica,0,0,0,,Petra, I am sorry for frightening you.
+Dialogue: 0,0:20:17.00,0:20:18.92,Default,Subaru,0,0,0,,You can still talk like that?
+Dialogue: 0,0:20:18.92,0:20:21.07,Default,Frederica,0,0,0,,I am still me, after all.
+Dialogue: 0,0:20:21.45,0:20:24.30,Default,Frederica,0,0,0,,You did wonderfully, \Nresisting the urge to scream.
+Dialogue: 0,0:20:24.30,0:20:25.03,Default,Petra,0,0,0,,Yes...
+Dialogue: 0,0:20:25.51,0:20:28.48,Default,Petra,0,0,0,,Yes! Please be careful!
+Dialogue: 0,0:20:28.48,0:20:29.95,Default,Frederica,0,0,0,,Good girl.
+Dialogue: 0,0:20:30.23,0:20:32.24,Default,Frederica,0,0,0,,Ram, I leave the rest in your hands.
+Dialogue: 0,0:20:32.24,0:20:33.46,Default,Ram,0,0,0,,No need to remind me.
+Dialogue: 0,0:20:34.00,0:20:36.92,Default,Ram,0,0,0,,But if you fall too far behind, \NI'll make you regret it.
+Dialogue: 0,0:20:44.03,0:20:45.05,Default,Ram,0,0,0,,Snap out of it!
+Dialogue: 0,0:20:46.72,0:20:47.70,Default,Ram,0,0,0,,Let's go.
+Dialogue: 0,0:20:47.70,0:20:50.30,Default,Subaru,0,0,0,,Right... We'll start with Rem.
+Dialogue: 0,0:20:59.20,0:21:00.15,Default,Subaru,0,0,0,,This is bad...
+Dialogue: 0,0:21:00.15,0:21:02.40,Default,Subaru,0,0,0,,This is bad. This is bad...
+Dialogue: 0,0:21:03.81,0:21:05.23,Default,Subaru,0,0,0,,We've gotta hurry upstairs!
+Dialogue: 0,0:21:18.33,0:21:19.71,Default,Subaru,0,0,0,,A mabeast?!
+Dialogue: 0,0:21:22.60,0:21:23.51,Default,Petra,0,0,0,,This way!
+Dialogue: 0,0:21:25.97,0:21:27.28,Default,Ram,0,0,0,,El Fula!
+Dialogue: 0,0:21:28.37,0:21:29.50,Default,Subaru,0,0,0,,Why is a mabeast here?!
+Dialogue: 0,0:21:29.50,0:21:30.64,Default,Ram,0,0,0,,There's no time for questions.
+Dialogue: 0,0:21:30.64,0:21:31.87,Default,Ram,0,0,0,,It's here, and that's that!
+Dialogue: 0,0:21:31.87,0:21:33.47,Default,Ram,0,0,0,,I'll go fetch the ground dragon from the stable.
+Dialogue: 0,0:21:33.47,0:21:34.82,Default,Subaru,0,0,0,,You mean Patrasche?
+Dialogue: 0,0:21:35.75,0:21:38.01,Default,Ram,0,0,0,,With a mabeast here, we'll need transportation.
+Dialogue: 0,0:21:38.68,0:21:41.11,Default,Ram,0,0,0,,Retrieve the two of them while I draw it away.
+Dialogue: 0,0:21:42.48,0:21:43.38,Default,Ram,0,0,0,,Fula!
+Dialogue: 0,0:21:45.53,0:21:46.49,Default,Ram,0,0,0,,Follow me!
+Dialogue: 0,0:21:58.04,0:22:00.32,Default,Subaru,0,0,0,,Okay... Now's my—
+Dialogue: 0,0:22:02.00,0:22:03.06,Default,Petra,0,0,0,,Subaru?!
+Dialogue: 0,0:22:04.17,0:22:05.23,Default,Petra,0,0,0,,You're bleeding!
+Dialogue: 0,0:22:09.26,0:22:11.24,Default,Petra,0,0,0,,This is gonna hurt! Be strong!
+Dialogue: 0,0:22:11.24,0:22:12.72,Default,Petra,0,0,0,,Three, two...
+Dialogue: 0,0:22:22.84,0:22:24.17,Default,Subaru,0,0,0,,Thanks...
+Dialogue: 0,0:22:25.20,0:22:27.13,Default,Subaru,0,0,0,,But what happened to "one"?
+Dialogue: 0,0:22:27.13,0:22:29.30,Default,Petra,0,0,0,,You were less tense this way.
+Dialogue: 0,0:22:31.77,0:22:33.92,Default,Subaru,0,0,0,,Petra... I'm sorry.
+Dialogue: 0,0:22:33.92,0:22:36.72,Default,Subaru,0,0,0,,I'm always putting you in danger.
+Dialogue: 0,0:22:36.72,0:22:40.12,Default,Petra,0,0,0,,Don't say silly things like \Nthat! I'm grateful to you!
+Dialogue: 0,0:22:40.64,0:22:43.63,Default,Petra,0,0,0,,You always come to save me when I'm in danger!
+Dialogue: 0,0:22:44.00,0:22:45.93,Default,Petra,0,0,0,,So this time, it's my turn.
+Dialogue: 0,0:22:46.66,0:22:49.29,Default,Petra,0,0,0,,We'll get Rem-neesama and \NBeatrice-chan out of here,
+Dialogue: 0,0:22:49.29,0:22:52.47,Default,Petra,0,0,0,,and escape with Ram-neesama and \NFrederica-neesama. All of us!
+Dialogue: 0,0:22:52.96,0:22:56.42,Default,Subaru,0,0,0,,You're amazing, Petra. I feel so pathetic.
+Dialogue: 0,0:22:56.42,0:22:57.22,Default,Petra,0,0,0,,You're not—
+Dialogue: 0,0:22:57.22,0:22:59.23,Default,Subaru,0,0,0,,No, I didn't mean that as a complaint.
+Dialogue: 0,0:22:59.69,0:23:02.52,Default,Subaru,0,0,0,,I meant I've gotta try harder \Nto be as amazing as you.
+Dialogue: 0,0:23:05.16,0:23:06.13,Default,Subaru,0,0,0,,Let's go.
+Dialogue: 0,0:23:06.13,0:23:08.78,Default,Subaru,0,0,0,,Like you said, we're all gonna get out of here.
+Dialogue: 0,0:23:10.68,0:23:11.49,Default,Petra,0,0,0,,Yeah!
+Dialogue: 0,0:23:19.01,0:23:19.73,Default,Petra,0,0,0,,Oh!
+Dialogue: 0,0:23:19.73,0:23:21.12,Default,Subaru,0,0,0,,Wh-What?!
+Dialogue: 0,0:23:21.72,0:23:24.30,Default,Petra,0,0,0,,I meant "Yes," not "Yeah"!
+Dialogue: 0,0:23:24.30,0:23:26.38,Default,Petra,0,0,0,,That is... The appropriate \Nresponse was "Yes"!
+Dialogue: 0,0:23:26.91,0:23:29.59,Default,Subaru,0,0,0,,I'll have Frederica or Ram scold you lat—
+Dialogue: 0,0:23:34.35,0:23:35.72,Default,Ram,0,0,0,,...rusu! Barusu!
+Dialogue: 0,0:23:37.43,0:23:40.31,Default,Ram,0,0,0,,That was a mistake. I should \Nhave come to check sooner.
+Dialogue: 0,0:23:40.31,0:23:42.81,Default,Ram,0,0,0,,I must do what I must do.
+Dialogue: 0,0:23:42.81,0:23:44.23,Default,Ram,0,0,0,,I'm going to do so, too.
+Dialogue: 0,0:23:44.89,0:23:46.52,Default,Ram,0,0,0,,That's it. Very good.
+Dialogue: 0,0:23:51.15,0:23:53.24,Default,Subaru,0,0,0,,Pa...asche...
+Dialogue: 0,0:24:14.48,0:24:16.39,Default,Subaru,0,0,0,,This... is...
+Dialogue: 0,0:24:21.40,0:24:23.35,Default,Subaru,0,0,0,,Are you okay, Pet—
+Dialogue: 0,0:24:53.67,0:24:57.10,Default,Elsa,0,0,0,,Ah, you've finally found me!
+Dialogue: 0,0:24:57.95,0:25:00.05,Default,Subaru,0,0,0,,Where's... Frederica?
+Dialogue: 0,0:25:00.05,0:25:02.26,Default,Elsa,0,0,0,,You mean the big maid?
+Dialogue: 0,0:25:02.26,0:25:03.74,Default,Elsa,0,0,0,,Don't worry.
+Dialogue: 0,0:25:03.74,0:25:05.44,Default,Elsa,0,0,0,,She proved to be quite enjoyable.
+Dialogue: 0,0:25:06.68,0:25:09.15,Default,Subaru,0,0,0,,Who sent you after us?
+Dialogue: 0,0:25:09.55,0:25:12.12,Default,Elsa,0,0,0,,I don't speak of my clients.
+Dialogue: 0,0:25:12.12,0:25:14.91,Default,Elsa,0,0,0,,I do have that much courtesy, at least.
+Dialogue: 0,0:25:15.44,0:25:17.81,Default,Elsa,0,0,0,,Though, since you came back \Nsooner than expected,
+Dialogue: 0,0:25:17.81,0:25:21.37,Default,Elsa,0,0,0,,this didn't play out exactly \Nas my directions specified.
+Dialogue: 0,0:25:21.37,0:25:23.62,Default,Subaru,0,0,0,,Not as... specified...
+Dialogue: 0,0:25:23.88,0:25:26.91,Default,Elsa,0,0,0,,Two maids and one shut-in...
+Dialogue: 0,0:25:26.91,0:25:29.25,Default,Elsa,0,0,0,,It was supposed to be timed to your return.
+Dialogue: 0,0:25:31.79,0:25:33.71,Default,Subaru,0,0,0,,This is... enough.
+Dialogue: 0,0:25:33.99,0:25:38.24,Default,Elsa,0,0,0,,True. I don't want Maylie taking \Nany more credit from me.
+Dialogue: 0,0:25:38.24,0:25:40.21,Default,Elsa,0,0,0,,So let's end this now.
+Dialogue: 0,0:25:40.96,0:25:43.18,Default,Elsa,0,0,0,,I'll send you to meet the angels.
+Dialogue: 0,0:25:45.64,0:25:47.27,Default - italics,Subaru,0,0,0,,Even if this world won't last,
+Dialogue: 0,0:25:47.27,0:25:49.11,Default - italics,Subaru,0,0,0,,I won't let her hurt Rem!
+Dialogue: 0,0:25:50.78,0:25:51.56,Default - italics,Subaru,0,0,0,,Rem!
+Dialogue: 0,0:25:58.87,0:26:00.12,Default,Subaru,0,0,0,,Why...
+Dialogue: 0,0:26:02.75,0:26:04.95,Default,Subaru,0,0,0,,Why did you save me?!
+Dialogue: 0,0:26:04.95,0:26:09.92,Episode Title,Title,0,0,0,,{\fs30\t(1,5010,\fs25)}The Maiden{\c&H90F5FF&}'s {\c&HFAFAFA&}Gospel
+Dialogue: 0,0:26:05.87,0:26:08.12,Default,Subaru,0,0,0,,Beatrice!
