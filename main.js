@@ -1,7 +1,8 @@
 const inputForm = document.getElementById("inputForm");
 const inputfields = document.getElementById("inputFields");
+const inputFiles = document.getElementsByClassName("inputFile");
 
-const inputstates = { 1: true }
+let inputstates = { 1: true }
 let inputcount = 1;
 function addInput(inputnum){
     if(document.getElementById("input" + inputnum)) {
@@ -62,7 +63,13 @@ function start(pressedBtn){
     }  
     changeTitleLinkState();
     window.addEventListener('scroll', changeTitleLinkState);
-    document.getElementsByClassName("inputFile")[0].value = "";
+    resetInputFields();
+}
+
+function resetInputFields() {
+    inputcount = 1;
+    inputstates = { 1: true }
+    inputfields.innerHTML = "<input type='file' class='inputFile' id='input1' onchange='addInput(1)' accept='.srt, .ass'>"
 }
 
 function convertSrt(rawsub, title){
