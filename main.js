@@ -5,30 +5,26 @@ const inputstates = { 1: true }
 let inputcount = 1;
 function addInput(inputnum){
     if(document.getElementById("input" + inputnum)) {
-        if(document.getElementById("input" + inputnum).files.length) {
-            if(inputstates[inputnum] === true) {
-
-                console.log(inputnum)
+        if(inputstates[inputnum] === true && document.getElementById("input" + inputnum).files.length) { // Input field hasn't changed yet
+            inputcount = inputcount + 1;
+            inputstates[inputcount] = true;
     
-                inputcount = inputcount + 1;
-                inputstates[inputcount] = true;
-        
-                const inputfield = document.createElement("input");
-                inputfield.type = "file";
-                inputfield.className = "inputFile";
-                inputfield.id = "input" + inputcount;
-                inputfield.accept = ".srt, .ass";
-                
-                // const num = parseInt(inputfield.id.replace("input", ""));
-                inputfield.onchange = function() {
-                    addInput(inputcount);
-                };
+            const inputfield = document.createElement("input");
+            inputfield.type = "file";
+            inputfield.className = "inputFile";
+            inputfield.id = "input" + inputcount;
+            inputfield.accept = ".srt, .ass";
 
-                inputfields.appendChild(inputfield);
-        
-                inputstates[inputnum] = false;
+            const num = parseInt(inputfield.id.replace("input", ""));
+            inputfield.onchange = function() {
+                addInput(num);
+            };
+            inputfields.appendChild(inputfield);
     
-            }
+            inputstates[inputnum] = false;    
+        }
+        else if(!document.getElementById("input" + inputnum).files.length) { // Input field was cleared
+            inputfields.removeChild(document.getElementById("input" + inputnum));
         }
     }
 }
