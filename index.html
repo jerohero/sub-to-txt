@@ -43,11 +43,14 @@
                 <img src="../img/headerimg.png" alt="img">
             </header>
             <p>With this tool you can convert subtitles (in .srt or .ass format) to raw text. </br> Use CTRL+F to search through the subtitles you converted.</p>
-            <form name="inputForm">
+            <form id="inputForm" name="inputForm">
 
-                <label class="inputButton"> <p>Select <strong>.srt</strong> or <strong>.ass</strong> file.</p>
-                    <input type="file" id="inputFile" multiple accept=".srt, .ass">
-                </label>
+                <p id="formTitle">Select <strong>.srt</strong> or <strong>.ass</strong> file.</p>
+                
+                <div id="inputFields">
+                    <input type="file" class="inputFile" id="input1" onchange="addInput(1)" accept=".srt, .ass">
+                </div>
+
                 <button id="convertShowBtn" type="button" onclick="start('show')"><strong>Convert</strong> & <strong>show</strong></button>
             </form>
          </div>

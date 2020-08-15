@@ -236,13 +236,13 @@ body::-webkit-scrollbar-thumb{
     text-shadow: 1px 1px black;
 }
 
-.inputButton p{
+#formTitle{
     margin-top: 30px;
     margin-bottom: 10px;
     text-align: center;
 }
 
-#inputFile{
+.inputFile{
     background: #2e2e2e;
     color: white;
     display: inline-block;

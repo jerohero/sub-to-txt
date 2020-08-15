@@ -1,7 +1,42 @@
+const inputForm = document.getElementById("inputForm");
+const inputfields = document.getElementById("inputFields");
+
+const inputstates = { 1: true }
+let inputcount = 1;
+function addInput(inputnum){
+    if(document.getElementById("input" + inputnum)) {
+        if(document.getElementById("input" + inputnum).files.length) {
+            if(inputstates[inputnum] === true) {
+
+                console.log(inputnum)
+    
+                inputcount = inputcount + 1;
+                inputstates[inputcount] = true;
+        
+                const inputfield = document.createElement("input");
+                inputfield.type = "file";
+                inputfield.className = "inputFile";
+                inputfield.id = "input" + inputcount;
+                inputfield.accept = ".srt, .ass";
+                
+                // const num = parseInt(inputfield.id.replace("input", ""));
+                inputfield.onchange = function() {
+                    addInput(inputcount);
+                };
+
+                inputfields.appendChild(inputfield);
+        
+                inputstates[inputnum] = false;
+    
+            }
+        }
+    }
+}
+
 let count = -1;
 function start(pressedBtn){
     count++;
-    const file = document.getElementById("inputFile");
+    const file = document.getElementsByClassName("inputFile")[0];
 
     if(file.files.length){ //if file exists
         let converted = [];
@@ -31,6 +66,7 @@ function start(pressedBtn){
     }  
     changeTitleLinkState();
     window.addEventListener('scroll', changeTitleLinkState);
+    document.getElementsByClassName("inputFile")[0].value = "";
 }
 
 function convertSrt(rawsub, title){
