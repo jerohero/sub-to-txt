@@ -30,37 +30,51 @@ function addInput(inputnum){
     }
 }
 
-let count = -1;
-function start(pressedBtn){
-    count++;
-    const file = document.getElementsByClassName("inputFile")[0];
+let count = 0;
+function start(){
+    const inputFiles = document.getElementsByClassName("inputFile");
 
-    if(file.files.length){ //if file exists
-        let converted = [];
-        const reader = new FileReader();
-        reader.readAsText(file.files[0]);
-        let title = file.files[0].name;  //iteraten voor zip
-        newTextArea(title);
-        reader.onload = function(e){
-                const rawsub = e.target.result;
-                if(title.endsWith(".srt")){
-                    converted = convertSrt(rawsub, title);
-                    title = title.replace(".srt", "");
-                }
-                else if(title.endsWith(".ass")){
-                    converted = convertAss(rawsub, title);
-                    title = title.replace(".ass", "");
-                }
-                else {
-                    converted[0] = "This file type is not supported.";
-                    converted[1] = "";
-                }
-                document.getElementsByClassName("hiddenOutput")[count].innerHTML = converted[1];
-                if(pressedBtn == "show"){
+    const previouscount = count;
+    // if(count > 0) {
+        
+    //     count = i;
+    // }
+    // else {
+
+    // }
+
+    Array.from(inputFiles).forEach((file, i) => {
+        if(file.files.length){ //if file exists
+            if(count === 0) {
+                count = i;
+            }
+            else {
+                count = count + i;
+            }
+            let converted = [];
+            const reader = new FileReader();
+            reader.readAsText(file.files[0]);
+            let title = file.files[0].name;  //iteraten voor zip
+            newTextArea(title);
+            reader.onload = function(e){
+                    const rawsub = e.target.result;
+                    if(title.endsWith(".srt")){
+                        converted = convertSrt(rawsub, title);
+                        title = title.replace(".srt", "");
+                    }
+                    else if(title.endsWith(".ass")){
+                        converted = convertAss(rawsub, title);
+                        title = title.replace(".ass", "");
+                    }
+                    else{
+                        converted[0] = "This file type is not supported.";
+                        converted[1] = "";
+                    }
+                    document.getElementsByClassName("hiddenOutput")[count].innerHTML = converted[1];
                     show(converted[0], title);
-                }
-        }    
-    }  
+            }    
+        } 
+    });
     changeTitleLinkState();
     window.addEventListener('scroll', changeTitleLinkState);
     resetInputFields();
@@ -100,7 +114,6 @@ function convertSrt(rawsub, title){
     const textList = [text, txtText];
     return textList;
 }
-
 
 function convertAss(rawsub, title){
     rawsub = rawsub.substring(rawsub.indexOf("Dialogue:"), rawsub.length); // Gets rid of all the unneeded information in the beginning of the file 
@@ -170,6 +183,7 @@ function convertAss(rawsub, title){
 
 
 function show(data, title){
+    console.log(count);
     const titleElement = document.getElementsByClassName("title")[count];
     const textArea = document.getElementsByClassName("textArea")[count];
     titleElement.innerText = title;
@@ -209,7 +223,7 @@ function download(data, filename, type){
     }
 }
 
-function changeTitleLinkState(){
+function changeTitleLinkState(){ // Shows the user what subtitle file they're looking at
     let titlelinks = document.querySelectorAll(".titlelink");
     let textareas = document.querySelectorAll(".textArea");
     
