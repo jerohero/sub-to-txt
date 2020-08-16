@@ -155,10 +155,10 @@ function convertAss(rawsub, title){
             
             // Adjust the line for HTML text and raw txt
             let lineText = splittedLine[1];
-            lineText = lineText + "<br>";
+            let htmlLineText = lineText + "<br>";
             let txtLineText = lineText + "\n\n";
             rawtext = rawtext + txtLineText;
-            htmltext = htmltext + htmlTime + lineText;
+            htmltext = htmltext + htmlTime + htmlLineText;
         }
     }
     const textList = [htmltext, rawtext];
@@ -179,7 +179,7 @@ function show(data, title, index){
 }
 
 function openTxt(index){
-    const hiddenText = document.getElementsByClassName("hiddenOutput")[index].innerHTML;
+    const hiddenText = document.getElementsByClassName("hiddenOutput")[index].innerText;
     download(hiddenText, "converted", "text/plain;charset=utf-8");
 }
 
