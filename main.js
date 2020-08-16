@@ -2,73 +2,66 @@ const inputForm = document.getElementById("inputForm");
 const inputfields = document.getElementById("inputFields");
 const inputFiles = document.getElementsByClassName("inputFile");
 
+window.addEventListener('scroll', changeTitleLinkState);
+
 let inputstates = { 1: true }
 let inputcount = 1;
 function addInput(inputnum){
-    if(document.getElementById("input" + inputnum)) {
-        if(inputstates[inputnum] === true && document.getElementById("input" + inputnum).files.length) { // Input field hasn't changed yet
-            inputcount = inputcount + 1;
-            inputstates[inputcount] = true;
-    
-            const inputfield = document.createElement("input");
-            inputfield.type = "file";
-            inputfield.className = "inputFile";
-            inputfield.id = "input" + inputcount;
-            inputfield.accept = ".srt, .ass";
+    if(!document.getElementById("input" + inputnum)) {
+        return; }
+    if(inputstates[inputnum] === true && document.getElementById("input" + inputnum).files.length) { // Input field hasn't changed yet
+        inputcount = inputcount + 1;
+        inputstates[inputcount] = true;
 
-            const num = parseInt(inputfield.id.replace("input", ""));
-            inputfield.onchange = function() {
-                addInput(num);
-            };
-            inputfields.appendChild(inputfield);
-    
-            inputstates[inputnum] = false;    
-        }
-        else if(!document.getElementById("input" + inputnum).files.length) { // Input field was cleared
-            inputfields.removeChild(document.getElementById("input" + inputnum));
-        }
+        const inputfield = document.createElement("input");
+        inputfield.type = "file";
+        inputfield.className = "inputFile";
+        inputfield.id = "input" + inputcount;
+        inputfield.accept = ".srt, .ass";
+
+        const num = parseInt(inputfield.id.replace("input", ""));
+        inputfield.onchange = function() {
+            addInput(num);
+        };
+        inputfields.appendChild(inputfield);
+
+        inputstates[inputnum] = false;    
+    }
+    else if(!document.getElementById("input" + inputnum).files.length) { // Input field was cleared
+        inputfields.removeChild(document.getElementById("input" + inputnum));
     }
 }
 
-// let count;
 function start(){
     const inputFiles = document.getElementsByClassName("inputFile");
     const currentcount = document.getElementsByClassName("textArea").length;
     Array.from(inputFiles).forEach((file, i) => {
-        if(file.files.length){ //if file exists
-            let converted = [];
-            const reader = new FileReader();
-            reader.readAsText(file.files[0]);
-            let title = file.files[0].name;  //iteraten voor zip
-            newTextArea(title, i + currentcount);
-            reader.onload = function(e){
-                    const rawsub = e.target.result;
-                    if(title.endsWith(".srt")){
-                        converted = convertSrt(rawsub, title);
-                        title = title.replace(".srt", "");
-                    }
-                    else if(title.endsWith(".ass")){
-                        converted = convertAss(rawsub, title);
-                        title = title.replace(".ass", "");
-                    }
-                    else{
-                        converted[0] = "This file type is not supported.";
-                        converted[1] = "";
-                    }
-                    document.getElementsByClassName("hiddenOutput")[i + currentcount].innerHTML = converted[1];
-                    show(converted[0], title, i + currentcount);
-            }    
-        } 
+        if(!file.files.length){
+            return; }
+        let converted = [];
+        const reader = new FileReader();
+        reader.readAsText(file.files[0]);
+        let title = file.files[0].name;  //iteraten voor zip
+        newTextArea(title, i + currentcount);
+        reader.onload = function(e){
+            const rawsub = e.target.result;
+            if(title.endsWith(".srt")){
+                converted = convertSrt(rawsub, title);
+                title = title.replace(".srt", "");
+            }
+            else if(title.endsWith(".ass")){
+                converted = convertAss(rawsub, title);
+                title = title.replace(".ass", "");
+            }
+            else{
+                converted[0] = "This file type is not supported.";
+                converted[1] = "";
+            }
+            document.getElementsByClassName("hiddenOutput")[i + currentcount].innerHTML = converted[1];
+            show(converted[0], title, i + currentcount);
+        }    
     });
-    changeTitleLinkState();
-    window.addEventListener('scroll', changeTitleLinkState);
     resetInputFields();
-}
-
-function resetInputFields() {
-    inputcount = 1;
-    inputstates = { 1: true }
-    inputfields.innerHTML = "<input type='file' class='inputFile' id='input1' onchange='addInput(1)' accept='.srt, .ass'>"
 }
 
 function convertSrt(rawsub, title){
@@ -81,11 +74,11 @@ function convertSrt(rawsub, title){
     for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
 
-        if( line.includes("-->") && line.includes(":")) { // Line contains time stamp
+        if( line.includes("-->") && line.includes(":")) { // Time stamp line
             var time = line.substring(0, line.indexOf(","));
             htmlTime = "<span id='time'>" + time + "</span>";
         }
-        else if( line.length > 1 &! parseInt(line)){ // Line is not a line containing the time stamp
+        else if( line.length > 1 &! parseInt(line)){ // Text line
             text = text + htmlTime + line + "<br>";
             let txtLine = line;
 
@@ -112,10 +105,9 @@ function convertAss(rawsub, title){
     const colors = ["#E67E22", "#F1C40F", "#2ECC71", "#1ABC9C", "#1ABC9C", "#3498DB", "#9B59B6", "#E74C3C"];
     let previousactor;
 
-    for (let index = 0; index < lines.length; index++) { // For each line
+    for (let index = 0; index < lines.length; index++) {
         let line = lines[index];
-
-        // Splits the line's information with a pattern that might differ in amount of zero's
+        // Splits the line's information with a pattern
         let splittedLine = [];
         if(line.includes("0,0,0,,")) {
             splittedLine = line.split("0,0,0,,"); }
@@ -126,25 +118,24 @@ function convertAss(rawsub, title){
         else if(line.includes("0000,0000,0000,,")) {
             splittedLine = line.split("0000,0000,0000,,"); }
 
-        if(splittedLine[1]) { // The line exists
-            let time = splittedLine[0]; // The first half of a line's information contains the timestamp
-            time = time.substring(time.indexOf(",") +1, time.indexOf(".")); // Grabs the exact information needed for timestamp
+        if(splittedLine[1]) {
+            let time = splittedLine[0];
+            time = time.substring(time.indexOf(",") +1, time.indexOf(".")); // Timestamp info
             if(time.substring(0, time.indexOf(":")) <= 24){
-                time = "0" + time; // Adds 0 to the hour, as long as it doesn't go over 24 hours
+                time = "0" + time; // 00:00:00 format
             }
             let htmlTime = "<span id='time'>" + time + "</span>"; 
 
-
             const info = splittedLine[0].split(',');
-            let actor = info[info.length - 2]; // Finds the actor in the information of the line's first half
-            if(actor !== "Default"){ // If an actor is assigned
+            let actor = info[info.length - 2]; // Actor info
+            if(actor !== "Default"){ // If actor is assigned
                 
                 if(!(actor in actorColor)) {
-                    actorColor[actor] = colors[Math.floor(Math.random() * colors.length)]; // Assign random color to actor
+                    actorColor[actor] = colors[Math.floor(Math.random() * colors.length)]; // Assign color to actor
                 }
                 if(previousactor !== actor) {
                     if(actor !== "") {
-                        htmlTime = "</br> <span id='actor' style='color:" + actorColor[actor] + "'>" + actor.charAt(0).toUpperCase() + actor.slice(1) + "</span>" + "</br>" + htmlTime; // Actor in this line is different than previous line, so create a new actor HTML object
+                        htmlTime = "</br> <span id='actor' style='color:" + actorColor[actor] + "'>" + actor.charAt(0).toUpperCase() + actor.slice(1) + "</span>" + "</br>" + htmlTime; // Create actor element
                     }
                     else { // Assigned actor is empty
                         htmlTime = "</br>" + htmlTime;
@@ -152,7 +143,6 @@ function convertAss(rawsub, title){
                 }
                 previousactor = actor;
             }
-            
             // Adjust the line for HTML text and raw txt
             let lineText = splittedLine[1];
             let htmlLineText = lineText + "<br>";
@@ -166,7 +156,7 @@ function convertAss(rawsub, title){
     return textList;
 }
 
-
+// Fills new text area with converted subtitle
 function show(data, title, index){
     const titleElement = document.getElementsByClassName("title")[index];
     const textArea = document.getElementsByClassName("textArea")[index];
@@ -191,9 +181,9 @@ function copyTxt(index, title){
 
 function download(data, filename, type){
     const file = new Blob([data], {type: type});
-    if(window.navigator.msSaveOrOpenBlob) //IE10+
+    if(window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
-    else{ //other browser support
+    else{ // Other browser support
         const a = document.createElement("a"),
             url = URL.createObjectURL(file);
         a.href = url;
@@ -207,15 +197,14 @@ function download(data, filename, type){
     }
 }
 
-function changeTitleLinkState(){ // Shows the user what subtitle file they're looking at
+// Shows the user what subtitle file they're looking at
+function changeTitleLinkState(){
     let titlelinks = document.querySelectorAll(".titlelink");
     let textareas = document.querySelectorAll(".textArea");
     
     if(textareas){
         let index = textareas.length;
-
         while(--index && window.scrollY + 50 < textareas[index].offsetTop) {}
-    
         titlelinks.forEach((titlelink) => titlelink.classList.remove("active"));
         titlelinks[index].classList.add("active");
     }
@@ -245,6 +234,7 @@ function newTextArea(title, index){
     textAreaDiv.appendChild(title_h2); textAreaDiv.appendChild(text_p);
     textAreaDiv.appendChild(hiddenOutput_p); document.body.appendChild(textAreaDiv);
 
+    // First subtitle
     if(index == 0){
         homelinkBtn = document.createElement("button");
         homelinkBtn.innerText = "Home"
@@ -258,7 +248,7 @@ function newTextArea(title, index){
         resetBtn.innerText = "reset";
         resetBtn.className = "resetBtn";
         resetBtn.type = "button";
-        resetBtn.onclick = function() { refreshPage(); }
+        resetBtn.onclick = function() { location.reload(); }
         document.getElementById("navlist").appendChild(resetBtn);
 
     }
@@ -275,6 +265,8 @@ function newTextArea(title, index){
     document.getElementById("navlist").appendChild(titlelinkBtn);
 }
 
-function refreshPage(){
-    location.reload();
+function resetInputFields() {
+    inputcount = 1;
+    inputstates = { 1: true }
+    inputfields.innerHTML = "<input type='file' class='inputFile' id='input1' onchange='addInput(1)' accept='.srt, .ass'>"
 }
