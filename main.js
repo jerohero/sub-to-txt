@@ -255,7 +255,7 @@ function newTextArea(title, index){
         document.getElementById("navlist").appendChild(homelinkBtn);
 
         resetBtn = document.createElement("button");
-        resetBtn.innerText = "Reset";
+        resetBtn.innerText = "reset";
         resetBtn.className = "resetBtn";
         resetBtn.type = "button";
         resetBtn.onclick = function() { refreshPage(); }

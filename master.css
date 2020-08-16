@@ -34,7 +34,8 @@ body::-webkit-scrollbar-thumb{
 }
   
 .logo{
-    width: 20%;
+    /* width: 23%; */
+    width: 170px;
     padding: 5px 0px 5px 0px;
 }
   
@@ -58,11 +59,18 @@ body::-webkit-scrollbar-thumb{
 }
   
 .topnav a{
-    color: white;
-    font-size: 23px;
+    font-size: 22px;
     text-decoration: none;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
+}
+
+.nav-rightarea a{
+  color: white;
+}
+
+.nav-leftarea a{
+  color: #ffcb20;
 }
   
 .topnav .active{
@@ -140,7 +148,7 @@ body::-webkit-scrollbar-thumb{
 
 .resetBtn{
   font-weight: bolder;
-  color: rgb(255, 51, 0);
+  color: black;
   font-size: 15px;
   position: absolute;
   transform: translate(95px, -27px);
@@ -148,8 +156,8 @@ body::-webkit-scrollbar-thumb{
 }
 
 .resetBtn:hover{
-  font-size: 20px;
-  transform: translate(94px, -32px);
+  font-size: 17px;
+  transform: translate(94px, -29px);
 }
 
 .titlelink::before{
@@ -282,7 +290,7 @@ body::-webkit-scrollbar-thumb{
   margin-bottom: 30px;
   padding: 100px;
   padding-top: 60px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   transform: translateY(100px);
   border-radius: 3px;
 }
@@ -506,26 +514,23 @@ footer {
   #subnavContainer{
     display: none;
   }
-  #infoMainContainer{
+  /* #infoMainContainer{
     height: 700px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 800px){
   #mainContainer, #infoMainContainer{
     padding: 40px;
-    padding-bottom: 70px;
     width: 80%;
-    height: 500px;
-  }
-
-  #mainContainer header img, #infoMainContainer header img{
-    width: 70%;
-    transform: translateX(21%);
   }
 
   #infoMainContainer p, #infoMainContainer p{
     font-size: 15px;
+  }
+
+  .inputFile{
+    width: 80%;
   }
 
   #extraInfoContainer{
@@ -544,18 +549,6 @@ footer {
 
   .copyBtn, .openTxt{
     transform: translate(15px, -20px);
-  }
-}
-
-@media only screen and (max-width: 500px){
-  #infoMainContainer{
-    height: 600px;
-  }
-}
-
-@media only screen and (max-width: 400px){
-  #mainContainer{
-    height: 430px;
   }
 }
 
