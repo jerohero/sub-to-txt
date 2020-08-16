@@ -30,32 +30,17 @@ function addInput(inputnum){
     }
 }
 
-let count = 0;
+// let count;
 function start(){
     const inputFiles = document.getElementsByClassName("inputFile");
-
-    const previouscount = count;
-    // if(count > 0) {
-        
-    //     count = i;
-    // }
-    // else {
-
-    // }
-
+    const currentcount = document.getElementsByClassName("textArea").length;
     Array.from(inputFiles).forEach((file, i) => {
         if(file.files.length){ //if file exists
-            if(count === 0) {
-                count = i;
-            }
-            else {
-                count = count + i;
-            }
             let converted = [];
             const reader = new FileReader();
             reader.readAsText(file.files[0]);
             let title = file.files[0].name;  //iteraten voor zip
-            newTextArea(title);
+            newTextArea(title, i + currentcount);
             reader.onload = function(e){
                     const rawsub = e.target.result;
                     if(title.endsWith(".srt")){
@@ -70,8 +55,8 @@ function start(){
                         converted[0] = "This file type is not supported.";
                         converted[1] = "";
                     }
-                    document.getElementsByClassName("hiddenOutput")[count].innerHTML = converted[1];
-                    show(converted[0], title);
+                    document.getElementsByClassName("hiddenOutput")[i + currentcount].innerHTML = converted[1];
+                    show(converted[0], title, i + currentcount);
             }    
         } 
     });
@@ -182,16 +167,15 @@ function convertAss(rawsub, title){
 }
 
 
-function show(data, title){
-    console.log(count);
-    const titleElement = document.getElementsByClassName("title")[count];
-    const textArea = document.getElementsByClassName("textArea")[count];
+function show(data, title, index){
+    const titleElement = document.getElementsByClassName("title")[index];
+    const textArea = document.getElementsByClassName("textArea")[index];
     titleElement.innerText = title;
 
     textArea.className = "textArea";
-    document.getElementsByClassName("text")[count].innerHTML = data;
+    document.getElementsByClassName("text")[index].innerHTML = data;
 
-    document.getElementsByClassName("textArea")[count].scrollIntoView(); window.scrollBy(0, -50);
+    document.getElementsByClassName("textArea")[index].scrollIntoView(); window.scrollBy(0, -50);
 }
 
 function openTxt(index){
@@ -237,9 +221,7 @@ function changeTitleLinkState(){ // Shows the user what subtitle file they're lo
     }
 }
 
-function newTextArea(title){
-    const index = count;
-
+function newTextArea(title, index){
     const copyBtn = document.createElement("button");
     copyBtn.className = "copyBtn";
     copyBtn.onclick = function() {copyTxt(index, title);}
@@ -263,7 +245,7 @@ function newTextArea(title){
     textAreaDiv.appendChild(title_h2); textAreaDiv.appendChild(text_p);
     textAreaDiv.appendChild(hiddenOutput_p); document.body.appendChild(textAreaDiv);
 
-    if(count == 0){
+    if(index == 0){
         homelinkBtn = document.createElement("button");
         homelinkBtn.innerText = "Home"
         homelinkBtn.className = "homelink";
